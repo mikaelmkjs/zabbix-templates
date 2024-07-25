@@ -1,0 +1,299 @@
+zabbix_export:
+  version: '6.0'
+  date: '2024-07-25T18:33:31Z'
+  groups:
+    -
+      uuid: e40dc5c700014dddb839e76ca87f150c
+      name: Templates/Printer
+  templates:
+    -
+      uuid: 06e320bd37a24c479d44da7ac734d75a
+      template: 'SAMSUNG - PRETO'
+      name: 'SAMSUNG - PRETO'
+      groups:
+        -
+          name: Templates/Printer
+      items:
+        -
+          uuid: ced95cc4d5a04740ad160f14cc475c68
+          name: 'Black Toner Model'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.4.1.236.11.5.11.53.61.5.2.1.19.1.1
+          key: black.toner.model
+          delay: 5m
+          trends: '0'
+          value_type: TEXT
+        -
+          uuid: b23af951c5fb404aa286e8a963821335
+          name: 'Black Toner Serial'
+          type: SNMP_AGENT
+          snmp_oid: .1.3.6.1.2.1.43.11.1.1.6.1.1
+          key: black.toner.serial
+          delay: 5m
+          trends: '0'
+          value_type: TEXT
+        -
+          uuid: 3ef73f1ba302431686cd845c22f35485
+          name: 'Unit Image Process Cartridge'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.43.11.1.1.6.1.2
+          key: mib-2.43.11.1.1.6.1.2
+          delay: 5m
+          trends: '0'
+          value_type: CHAR
+          tags:
+            -
+              tag: Application
+              value: 'Cartridge Resource'
+        -
+          uuid: 919ed2f156dd44e381cef0de4e8913e4
+          name: 'Black Toner Resource'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.43.11.1.1.8.1.1
+          key: mib-2.43.11.1.1.8.1.1
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: 'Cartridge Resource'
+        -
+          uuid: f21082d4df554be781ecdeb867d4f11b
+          name: 'Unit Image Process Resource'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.43.11.1.1.8.1.2
+          key: mib-2.43.11.1.1.8.1.2
+          delay: 5m
+          history: 30d
+          tags:
+            -
+              tag: Application
+              value: 'Cartridge Resource'
+        -
+          uuid: c9adeaf5a6be45e4a35b9e9e769b01e9
+          name: 'Black Toner Resource'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.43.11.1.1.8.1.3
+          key: mib-2.43.11.1.1.8.1.3
+          delay: 5m
+          history: 30d
+          tags:
+            -
+              tag: Application
+              value: 'Cartridge Resource'
+        -
+          uuid: 5779e6dede764db08d97139fceeadcd5
+          name: 'Black Toner Count'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.43.11.1.1.9.1.1
+          key: mib-2.43.11.1.1.9.1.1
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: 'Actual Resource'
+        -
+          uuid: 072d3bcb03b34b1d90f93c117d277dff
+          name: 'Unit Image Process Count'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.43.11.1.1.9.1.2
+          key: mib-2.43.11.1.1.9.1.2
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: 'Actual Resource'
+        -
+          uuid: b4855197fdc24b8cb18ebfc3eff3527c
+          name: 'Black Toner Count'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.43.11.1.1.9.1.3
+          key: mib-2.43.11.1.1.9.1.3
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: 'Actual Resource'
+        -
+          uuid: a59eae83aec543d4ba73359011e490d6
+          name: 'Unit Image Process Level'
+          type: CALCULATED
+          key: MPersent
+          delay: 5m
+          units: '%'
+          params: '100*last(//mib-2.43.11.1.1.9.1.2)/last(//mib-2.43.11.1.1.8.1.2)'
+          tags:
+            -
+              tag: Application
+              value: Percent
+          triggers:
+            -
+              uuid: 04d74d96a67f4d6194dac28e8abd1bb4
+              expression: 'last(/SAMSUNG - PRETO/MPersent)<=1'
+              name: 'Unid. de Process. Imagem com {ITEM.VALUE} em {HOST.NAME}'
+              priority: HIGH
+        -
+          uuid: 6890d5f893d2432aa2045d73027af9f4
+          name: 'Modelo Impressora'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.236.11.5.1.1.1.1.0
+          key: samsung.hrDeviceDescr
+          delay: '30'
+          trends: '0'
+          value_type: LOG
+        -
+          uuid: d88409d829c2438bbc6172bf68f70a55
+          name: 'MAC Address'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.2.2.1.6.1
+          key: samsung.ifPhysAddress
+          delay: '30'
+          trends: '0'
+          status: DISABLED
+          value_type: CHAR
+        -
+          uuid: ce53709d7d014819b8b51073ee671e9c
+          name: 'Nome Impressora'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.236.11.5.1.12.7.2.0
+          key: samsung.prtGeneralPrinterName
+          delay: '30'
+          trends: '0'
+          value_type: CHAR
+        -
+          uuid: 942025b53ef448e5aeaa089010b8a916
+          name: 'Serial Impressora'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.236.11.5.1.1.1.4.0
+          key: samsung.prtGeneralSerialNumber
+          delay: '30'
+          trends: '0'
+          value_type: CHAR
+        -
+          uuid: 5a1bc3caf99f404d8901da0fb0aef8d1
+          name: 'Paginas Impressa Toner Preto'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.236.11.5.11.53.61.5.2.1.14.1.1
+          key: samsung.prtMarkerSuppliesCapacity
+          delay: '30'
+        -
+          uuid: f723fc6b82de446884c370588d42e62b
+          name: 'Capacidade Paginas Toner Preto'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.43.11.1.1.8.1.1
+          key: samsung.prtMarkerSuppliesMaxCapacity
+          delay: '30'
+        -
+          uuid: 97a0edfd631c4fb9aaa63c3ffe6fb479
+          name: 'Status de Trabalho'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.43.16.5.1.2.1.1
+          key: samsung.status
+          delay: '30'
+          trends: '0'
+          status: DISABLED
+          value_type: CHAR
+        -
+          uuid: a61bd8a02f6e46349510c5a628757853
+          name: DescriÃ§Ã£o
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.1.1.0
+          key: samsung.sysDescr
+          delay: '30'
+          trends: '0'
+          status: DISABLED
+          value_type: CHAR
+        -
+          uuid: 7ea1208406744d7181afe77d69802f49
+          name: Setor
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.1.6.0
+          key: samsung.sysLocation
+          delay: '30'
+          trends: '0'
+          status: DISABLED
+          value_type: CHAR
+        -
+          uuid: 22324fe0a5934debbf0fc36fba30a516
+          name: 'Tempo Ativo'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.1.3.0
+          key: samsung.sysuptime
+          delay: '30'
+          status: DISABLED
+          units: uptime
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+        -
+          uuid: 0b4df614ef2f42b692c8679ab39db55d
+          name: 'Tipo Papel bandeja 1'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.43.8.2.1.12.1.1
+          key: samsung.tipopapel
+          delay: '30'
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+        -
+          uuid: a328bf06686549598a6b024a08963078
+          name: 'Tipo Papel bandeja 2'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.2.1.43.8.2.1.12.1.2
+          key: samsung.tipopapel2
+          delay: '30'
+          trends: '0'
+          status: DISABLED
+          value_type: TEXT
+        -
+          uuid: a58f9602037646bb9cafc150cae6704b
+          name: 'Black Toner Level'
+          type: CALCULATED
+          key: YPersent
+          delay: 5m
+          units: '%'
+          params: '100*last(//mib-2.43.11.1.1.9.1.1)/last(//mib-2.43.11.1.1.8.1.1)'
+          tags:
+            -
+              tag: Application
+              value: Percent
+  triggers:
+    -
+      uuid: a7b3632d8a8e4c4c833e6e96584ea1a8
+      expression: |
+        last(/SAMSUNG - PRETO/YPersent)<=1
+        and find(/SAMSUNG - PRETO/black.toner.model,,,"s")=0
+        and find(/SAMSUNG - PRETO/black.toner.serial,,,"s")=0 
+        and last(/SAMSUNG - PRETO/samsung.prtMarkerSuppliesCapacity)>=0
+      name: 'Black Toner com {ITEM.VALUE} em {HOST.NAME}'
+      priority: HIGH
+  graphs:
+    -
+      uuid: 31c7afb6b0744e4dac968125a43911f6
+      name: 'Black Cartridge Level'
+      graph_items:
+        -
+          sortorder: '1'
+          drawtype: DASHED_LINE
+          color: F63100
+          item:
+            host: 'SAMSUNG - PRETO'
+            key: samsung.prtMarkerSuppliesMaxCapacity
+    -
+      uuid: 7a1f86e3a49a4db7adb283db0abf6b49
+      name: 'Black Cartrige Printed Pages'
+      graph_items:
+        -
+          drawtype: FILLED_REGION
+          color: 1A7C11
+          item:
+            host: 'SAMSUNG - PRETO'
+            key: samsung.prtMarkerSuppliesCapacity
+        -
+          sortorder: '1'
+          drawtype: DASHED_LINE
+          color: F63100
+          item:
+            host: 'SAMSUNG - PRETO'
+            key: samsung.prtMarkerSuppliesMaxCapacity
