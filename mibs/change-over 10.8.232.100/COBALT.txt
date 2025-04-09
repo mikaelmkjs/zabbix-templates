@@ -1,0 +1,37 @@
+COBALT-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    OBJECT-TYPE, NOTIFICATION-TYPE, MODULE-IDENTITY, Integer32, Unsigned32, enterprises
+        FROM SNMPv2-SMI
+    OBJECT-GROUP, NOTIFICATION-GROUP, MODULE-COMPLIANCE
+        FROM SNMPv2-CONF
+    DisplayString
+        FROM SNMPv2-TC;
+
+cobaltDigital MODULE-IDENTITY
+    LAST-UPDATED "201706080000Z"
+    ORGANIZATION "Cobalt Digital Inc."
+    CONTACT-INFO
+        "postal: Cobalt Digital Inc.
+                 2506 Galen Drive
+                 Champaign, IL 61820
+                 USA
+
+         e-mail: support@cobaltdigital.com
+
+         phone:  217.344.1243"
+    DESCRIPTION
+        "Base MIB for Cobalt Digital Inc. Devices"
+    REVISION "201706080000Z"
+        DESCRIPTION
+            ""
+
+    ::= { enterprises 29693 }
+
+cobaltOpenGear
+    OBJECT IDENTIFIER ::= { cobaltDigital 1}
+
+cobaltOpenGearObjects
+    OBJECT IDENTIFIER ::= { cobaltOpenGear 1}
+
+END

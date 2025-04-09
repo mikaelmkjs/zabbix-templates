@@ -1,0 +1,125 @@
+
+# Documentado por: Bee Solutions
+# Author: Fernando Almondes
+# Referencias: https://github.com/orkestral/venom
+# Servidor: Testado no Ubuntu Server 20.04 LTS
+# Data: 12/09/2023
+
+PS: Nos ajude a manter o canal e apoie o projeto de contribuição com a comunidade, faça sua doação:
+
+### Chave PIX ###
+dd93211c-c70a-4dae-a703-7c41836bc3fd
+
+### PicPay ###
+@fernandoalmondes
+
+### Doador mensal de qualquer valor ###
+Link: https://abre.ai/beeapoio
+
+Em breve: Notificações com graficos no Whatsapp. ;)
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# ------------------------------------------------ #
+########## INFORMAÇÕES IMPORTANTES #############
+# -> Para utilizar autenticação por usuário e senha e token, pesquise na WEB como proteger uma API do Node.js;
+# -> Não nos responsabilizamos pelo mal uso da API ou pelo seu bom funcionamento, ao testar, recomendamos a utilização de um número de testes.
+# ------------------------------------------------ #
+
+# Parte 1 - Tipo de midia do Zabbix #
+
+# Mova o script de alerta (beezap) para o diretório:
+/usr/lib/zabbix/alertscripts/
+
+# Importe ou crie o tipo de mídia no Zabbix
+
+Exemplo de incidente:
+*Alerta de Novo Incidente* ❌
+
+\n\n*Iniciado em*: {EVENT.TIME}\n*Problema*: {EVENT.NAME}\n*Host*: {HOST.NAME}\n*Item*: {ITEM.NAME}\n*IP*: {HOST.IP}\n*Severidade*: {EVENT.SEVERITY}\n*Status Anterior*: {?last(//{ITEM.KEY},#2)}\n*Status Atual*: {EVENT.OPDATA}\n*Ação*: Por favor, verificar dispositivo ❌.\n*By*: Bee Solutions
+
+Exemplo de incidente resolvido:
+*Alerta de Resolução de Incidente* ✅
+
+\n\n*Resolvido em*: {EVENT.RECOVERY.TIME} de {EVENT.RECOVERY.DATE}\n*Problema*: {EVENT.NAME}\n*Duração*: {EVENT.DURATION}\n*Host*: {HOST.NAME}\n*IP*: {HOST.IP}\n*Severidade*: {EVENT.SEVERITY}\n*Status Anterior*: {?last(//{ITEM.KEY},#2)}\n*Status Atual*: {EVENT.OPDATA}\n*Ação*: O Incidente foi resolvido ✅.\n*By*: Bee Solutions
+
+
+# Crie uma trigger action e aponte para o seu tipo de mídia, lembre-se de adicionar o seu número ou id do grupo nas configurações do perfil do usuário.
+
+
+# ------------------------------------------------ #
+
+# Parte 2 - Criação da API #
+
+mkdir /opt/beezap
+cd /opt/beezap
+
+apt-get install -y build-essential
+apt-get install libgbm-dev
+
+# Instalando o navegador Google Chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome-stable_current_amd64.deb
+dpkg -i ./google-chrome-stable_current_amd64.deb
+
+# Instalação e atualizando o Node
+apt install npm
+npm install -g n
+n latest
+
+### Após instalar o node, é recomendado fechar o terminal atual e abrir uma nova sessão do SSH ###
+
+# Iniciando projeto
+npm init -y
+
+# Instalando as dependencias
+npm uninstall venom-bot
+npm install venom-bot@5.0.20
+npm install express
+npm install pm2
+
+# Testando API (Leia o QR Code no seu Whatsapp)
+node beezap.js
+
+# Pegue a lista de grupos (Ex: _serialized: '12000000000000000@g.us', sendo que o chatid é só o número: 12000000000000000)
+node beeid.js
+
+# Executando em segundo plano
+pm2 start beezap.js
+pm2 status
+pm2 logs
+
+
+# Opcional: Se ainda assim tiver problemas tente (Creditos extras Comunidade):
+pm2 stop 0 
+pm2 flush 
+rm -rf tokens/
+npm install venom-bot@5.0.20
+npm install -g npm@10.0.0
+sudo apt update 
+sudo apt --only-upgrade install google-chrome-stable 
+pm2 start beezap.js 
+pm2 logs
+
+# ------------------------------------------------ #
+
+# Parte 3 - Subindo Firewall #
+apt install iptables-persistent
+
+iptables -I INPUT -s 127.0.0.1 -p tcp --dport 4000 -j ACCEPT
+iptables -A INPUT -s 192.168.18.0/24 -p tcp --dport 4000 -j ACCEPT
+iptables -A INPUT -p tcp --dport 4000 -j DROP
+
+# Salvando regras atuais no arquivo
+iptables-save > /etc/iptables/rules.v4
+
+# Listando regras
+iptables -L -n -v
+
+# Editando regras
+nano /etc/iptables/rules.v4
+
+# Restaurando regras de firewall
+iptables-restore /etc/iptables/rules.v4
+
+# ------------------------------------------------ #
