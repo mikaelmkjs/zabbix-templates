@@ -1,0 +1,6726 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 39,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 0,
+        "y": 0
+      },
+      "id": 76,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"WP Tudo EP\" of scenario \"WP Tudo EP\"."
+          },
+          "itemTag": {
+            "filter": "WP Tudo EP"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "WP Tudo EP",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 2,
+        "y": 0
+      },
+      "id": 34,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Cidade On WP\" of scenario \"Cidade On WP\"."
+          },
+          "itemTag": {
+            "filter": "Cidade On WP"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Cidade On WP",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 4,
+        "y": 0
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"CBN Ribeirão Preto Player\" of scenario \"CBN Ribeirão Preto Player\"."
+          },
+          "itemTag": {
+            "filter": "CBN Ribeirão Preto Player"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "CBN Ribeirão Preto Player",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 6,
+        "y": 0
+      },
+      "id": 32,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"CBN Ribeirão\" of scenario \"CBN Ribeirão\"."
+          },
+          "itemTag": {
+            "filter": "CBN Ribeirão"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "CBN Ribeirão",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 8,
+        "y": 0
+      },
+      "id": 65,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Ta Combinado\" of scenario \"Ta Combinado\"."
+          },
+          "itemTag": {
+            "filter": "Ta Combinado"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Ta Combinado",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 10,
+        "y": 0
+      },
+      "id": 67,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Virando Bixo\" of scenario \"Virando Bixo\"."
+          },
+          "itemTag": {
+            "filter": "Virando Bixo"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Virando Bixo",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 12,
+        "y": 0
+      },
+      "id": 30,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"CBN Ribeirão Noticia Interna\" of scenario \"CBN Ribeirão Noticia Interna\"."
+          },
+          "itemTag": {
+            "filter": "CBN Ribeirão Noticia Interna"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "CBN Ribeirão Noticia Interna",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 14,
+        "y": 0
+      },
+      "id": 68,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"CBN Campinas\" of scenario \"CBN Campinas\"."
+          },
+          "itemTag": {
+            "filter": "CBN Campinas"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "CBN Campinas",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 16,
+        "y": 0
+      },
+      "id": 43,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"EP FM\" of scenario \"EP FM\"."
+          },
+          "itemTag": {
+            "filter": "EP FM"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "EP FM",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 18,
+        "y": 0
+      },
+      "id": 45,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"EPTicekts\" of scenario \"EPTicekts\"."
+          },
+          "itemTag": {
+            "filter": "EPTicekts"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "EPTickets",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 20,
+        "y": 0
+      },
+      "id": 57,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"OA Eventos\" of scenario \"OA Eventos\"."
+          },
+          "itemTag": {
+            "filter": "OA Eventos"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "OA Eventos",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 22,
+        "y": 0
+      },
+      "id": 35,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Conexão Solidária\" of scenario \"Conexão Solidária\"."
+          },
+          "itemTag": {
+            "filter": "Conexão Solidária"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Conexão Solidária",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 0,
+        "y": 3
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API Contacts\" of scenario \"API Contacts\"."
+          },
+          "itemTag": {
+            "filter": "API Contacts"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API Contacts",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 2,
+        "y": 3
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API Reports\" of scenario \"API Reports\"."
+          },
+          "itemTag": {
+            "filter": "API Reports"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API Reports",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 4,
+        "y": 3
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API Customer\" of scenario \"API Customer\"."
+          },
+          "itemTag": {
+            "filter": "API Customer"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API Customer",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 6,
+        "y": 3
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API Sales\" of scenario \"API Sales\"."
+          },
+          "itemTag": {
+            "filter": "API Sales"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API Sales",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 8,
+        "y": 3
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API Customized\" of scenario \"API Customized\"."
+          },
+          "itemTag": {
+            "filter": "API Customized"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API Customized",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 10,
+        "y": 3
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API Financial\" of scenario \"API Financial\"."
+          },
+          "itemTag": {
+            "filter": "API Financial"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API Financial",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 12,
+        "y": 3
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API SysAdmin\" of scenario \"API SysAdmin\"."
+          },
+          "itemTag": {
+            "filter": "API SysAdmin"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API SysAdmin",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 14,
+        "y": 3
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API Fiscal\" of scenario \"API Fiscal\"."
+          },
+          "itemTag": {
+            "filter": "API Fiscal"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API Fiscal",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 16,
+        "y": 3
+      },
+      "id": 11,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API Leads\" of scenario \"API Leads\"."
+          },
+          "itemTag": {
+            "filter": "API Leads"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API Leads",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 18,
+        "y": 3
+      },
+      "id": 50,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Instituto EP\" of scenario \"Instituto EP\"."
+          },
+          "itemTag": {
+            "filter": "Instituto EP"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Instituto EP",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 20,
+        "y": 3
+      },
+      "id": 55,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Motor do Futuro\" of scenario \"Motor do Futuro\"."
+          },
+          "itemTag": {
+            "filter": "Motor do Futuro"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Motor do Futuro",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 22,
+        "y": 3
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API PreSalesOrder\" of scenario \"API PreSalesOrder\"."
+          },
+          "itemTag": {
+            "filter": "API PreSalesOrder"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API PreSalesOrder",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 0,
+        "y": 6
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Agenda Barretos\" of scenario \"Agenda Barretos\"."
+          },
+          "itemTag": {
+            "filter": "Agenda Barretos"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Agenda Barretos",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 2,
+        "y": 6
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Agenda Campinas\" of scenario \"Agenda Campinas\"."
+          },
+          "itemTag": {
+            "filter": "Agenda Campinas"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Agenda Campinas",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 4,
+        "y": 6
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Agenda Franca\" of scenario \"Agenda Franca\"."
+          },
+          "itemTag": {
+            "filter": "Agenda Franca"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Agenda Franca",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 6,
+        "y": 6
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Agenda Limeira\" of scenario \"Agenda Limeira\"."
+          },
+          "itemTag": {
+            "filter": "Agenda Limeira"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Agenda Limeira",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 8,
+        "y": 6
+      },
+      "id": 73,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API Products\" of scenario \"API Products\"."
+          },
+          "itemTag": {
+            "filter": "API Products"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API Products",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 10,
+        "y": 6
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API Ticket\" of scenario \"API Ticket\"."
+          },
+          "itemTag": {
+            "filter": "API Ticket"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API Ticket",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 12,
+        "y": 6
+      },
+      "id": 64,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Ribeirão Motofestival\" of scenario \"Ribeirão Motofestival\"."
+          },
+          "itemTag": {
+            "filter": "Ribeirão Motofestival"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Ribeirão Motofestival",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 14,
+        "y": 6
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Agenda Rio Claro\" of scenario \"Agenda Rio Claro\"."
+          },
+          "itemTag": {
+            "filter": "Agenda Rio Claro"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Agenda Rio Claro",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 16,
+        "y": 6
+      },
+      "id": 26,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Agenda São Carlos\" of scenario \"Agenda São Carlos\"."
+          },
+          "itemTag": {
+            "filter": "Agenda São Carlos"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Agenda São Carlos",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 18,
+        "y": 6
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Agenda Araraquara\" of scenario \"Agenda Araraquara\"."
+          },
+          "itemTag": {
+            "filter": "Agenda Araraquara"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Agenda Araraquara",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 20,
+        "y": 6
+      },
+      "id": 46,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Empresas Pioneiras\" of scenario \"Empresas Pioneiras\"."
+          },
+          "itemTag": {
+            "filter": "Empresas Pioneiras"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Empresas Pioneiras",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 22,
+        "y": 6
+      },
+      "id": 59,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Projetos Empresas Pioneiras\" of scenario \"Projetos Empresas Pioneiras\"."
+          },
+          "itemTag": {
+            "filter": "Projetos Empresas Pioneiras"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Projetos Empresas Pioneiras",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 0,
+        "y": 9
+      },
+      "id": 36,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Dialogosnaeducacao\" of scenario \"Dialogosnaeducacao\"."
+          },
+          "itemTag": {
+            "filter": "Dialogosnaeducacao"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Dialogos na educação",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 2,
+        "y": 9
+      },
+      "id": 29,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"CBN Campinas Player\" of scenario \"CBN Campinas Player\"."
+          },
+          "itemTag": {
+            "filter": "CBN Campinas Player"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "CBN Campinas Player",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 4,
+        "y": 9
+      },
+      "id": 47,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Ester Agroindustrial\" of scenario \"Ester Agroindustrial\"."
+          },
+          "itemTag": {
+            "filter": "Ester Agroindustrial"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Ester Agroindustrial",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 6,
+        "y": 9
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Agenda Agronegocio\" of scenario \"Agenda Agronegocio\"."
+          },
+          "itemTag": {
+            "filter": "Agenda Agronegocio"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Agenda Agronegocio",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 8,
+        "y": 9
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"API Content\" of scenario \"API Content\"."
+          },
+          "itemTag": {
+            "filter": "API Content"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "API Content",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 10,
+        "y": 9
+      },
+      "id": 51,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Intranet01\" of scenario \"Intranet01\"."
+          },
+          "itemTag": {
+            "filter": "Intranet01"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Intranet01",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 12,
+        "y": 9
+      },
+      "id": 49,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Institucional EPTV\" of scenario \"Institucional EPTV\"."
+          },
+          "itemTag": {
+            "filter": "Institucional EPTV"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Institucional EPTV",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 14,
+        "y": 9
+      },
+      "id": 74,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Negócios EP\" of scenario \"Negócios EP\"."
+          },
+          "itemTag": {
+            "filter": "Negócios EP"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Negócios EP",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 16,
+        "y": 9
+      },
+      "id": 54,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Intranet04\" of scenario \"Intranet04\"."
+          },
+          "itemTag": {
+            "filter": "Intranet04"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Intranet04",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                },
+                "301": {
+                  "index": 1,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 18,
+        "y": 9
+      },
+      "id": 60,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Redirect Campanha Aedes Aegypti (protocolo HTTP)\" of scenario \"Redirect Campanha Aedes Aegypti (protocolo HTTP)\"."
+          },
+          "itemTag": {
+            "filter": "Redirect Campanha Aedes Aegypti (protocolo HTTP)"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Redirect Campanha Aedes Aegypti (protocolo HTTP)",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 20,
+        "y": 9
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Agenda Piracicaba\" of scenario \"Agenda Piracicaba\"."
+          },
+          "itemTag": {
+            "filter": "Agenda Piracicaba"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Agenda Piracicaba",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                },
+                "301": {
+                  "index": 1,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 22,
+        "y": 9
+      },
+      "id": 63,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Redirect FUTSAL (protocolo HTTP)\" of scenario \"Redirect FUTSAL (protocolo HTTP)\"."
+          },
+          "itemTag": {
+            "filter": "Redirect FUTSAL (protocolo HTTP)"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Redirect FUTSAL (protocolo HTTP)",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 0,
+        "y": 12
+      },
+      "id": 44,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"EP Radio\" of scenario \"EP Radio\"."
+          },
+          "itemTag": {
+            "filter": "EP Radio"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "EP Radio",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                },
+                "301": {
+                  "index": 1,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 2,
+        "y": 12
+      },
+      "id": 61,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Redirect Campanha do Agasalho (protocolo HTTP)\" of scenario \"Redirect Campanha do Agasalho (protocolo HTTP)\"."
+          },
+          "itemTag": {
+            "filter": "Redirect Campanha do Agasalho (protocolo HTTP)"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Redirect Campanha do Agasalho (protocolo HTTP)",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 4,
+        "y": 12
+      },
+      "id": 72,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Player EP FM Sao Carlos\" of scenario \"Player EP FM Sao Carlos\"."
+          },
+          "itemTag": {
+            "filter": "Player EP FM Sao Carlos"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Player EP FM Sao Carlos",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 6,
+        "y": 12
+      },
+      "id": 71,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Player EP FM Araraquara\" of scenario \"Player EP FM Araraquara\"."
+          },
+          "itemTag": {
+            "filter": "Player EP FM Araraquara"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Player EP FM Araraquara",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 8,
+        "y": 12
+      },
+      "id": 53,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Intranet03\" of scenario \"Intranet03\"."
+          },
+          "itemTag": {
+            "filter": "Intranet03"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Intranet03",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 10,
+        "y": 12
+      },
+      "id": 52,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Intranet02\" of scenario \"Intranet02\"."
+          },
+          "itemTag": {
+            "filter": "Intranet02"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Intranet02",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 12,
+        "y": 12
+      },
+      "id": 75,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Player EP FM Campinas\" of scenario \"Player EP FM Campinas\"."
+          },
+          "itemTag": {
+            "filter": "Player EP FM Campinas"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Player EP FM Campinas",
+      "type": "stat"
+    },
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "200": {
+                  "index": 0,
+                  "text": "OK"
+                },
+                "301": {
+                  "index": 1,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 404
+              },
+              {
+                "color": "dark-red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 14,
+        "y": 12
+      },
+      "id": 62,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 3,
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.4.5",
+      "targets": [
+        {
+          "application": {
+            "filter": ""
+          },
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "FyHy5ay7z"
+          },
+          "functions": [],
+          "group": {
+            "filter": "TECNOLOGIA"
+          },
+          "host": {
+            "filter": "SITES - TECNOLOGIA"
+          },
+          "item": {
+            "filter": "Response code for step \"Redirect Corrida Integracao (protocolo HTTP)\" of scenario \"Redirect Corrida Integracao (protocolo HTTP)\"."
+          },
+          "itemTag": {
+            "filter": "Redirect Corrida Integracao (protocolo HTTP)"
+          },
+          "options": {
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2,
+            "count": true,
+            "minSeverity": 3
+          }
+        }
+      ],
+      "title": "Redirect Corrida Integracao (protocolo HTTP)",
+      "type": "stat"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "SITES TECNOLOGIA",
+  "uid": "RWKJ9JgSk",
+  "version": 58,
+  "weekStart": ""
+}

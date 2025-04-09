@@ -1,0 +1,619 @@
+zabbix_export:
+  version: '6.0'
+  date: '2023-12-05T18:58:04Z'
+  groups:
+    -
+      uuid: 7df96b18c230490a9a0a9e2307226338
+      name: Templates
+  templates:
+    -
+      uuid: 5b2048943e4046d19121d03f0c1d6add
+      template: 'Interfaces de Rede Windows'
+      name: 'Interfaces de Rede Windows'
+      groups:
+        -
+          name: Templates
+      items:
+        -
+          uuid: 6787387effe3449bb6f34fd1be4155a3
+          name: 'Network interfaces WMI get'
+          key: 'wmi.getall[root\cimv2,"select Name,Description,NetConnectionID,Speed,AdapterTypeId,NetConnectionStatus,GUID from win32_networkadapter where PhysicalAdapter=True and NetConnectionStatus>0"]'
+          delay: 5m
+          history: '0'
+          trends: '0'
+          value_type: TEXT
+          description: 'Raw data of win32_networkadapter.'
+          preprocessing:
+            -
+              type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 1h
+          tags:
+            -
+              tag: component
+              value: raw
+      discovery_rules:
+        -
+          uuid: 4b84425d9fa04e4fb9dcb5ec1ae95011
+          name: 'Network interfaces discovery'
+          type: DEPENDENT
+          key: net.if.discovery
+          delay: '0'
+          filter:
+            evaltype: AND
+            conditions:
+              -
+                macro: '{#IFNAME}'
+                value: '{$NET.IF.IFNAME.MATCHES}'
+                formulaid: E
+              -
+                macro: '{#IFNAME}'
+                value: '{$NET.IF.IFNAME.NOT_MATCHES}'
+                operator: NOT_MATCHES_REGEX
+                formulaid: F
+              -
+                macro: '{#IFDESCR}'
+                value: '{$NET.IF.IFDESCR.MATCHES}'
+                formulaid: C
+              -
+                macro: '{#IFDESCR}'
+                value: '{$NET.IF.IFDESCR.NOT_MATCHES}'
+                operator: NOT_MATCHES_REGEX
+                formulaid: D
+              -
+                macro: '{#IFALIAS}'
+                value: '{$NET.IF.IFALIAS.MATCHES}'
+                formulaid: A
+              -
+                macro: '{#IFALIAS}'
+                value: '{$NET.IF.IFALIAS.NOT_MATCHES}'
+                operator: NOT_MATCHES_REGEX
+                formulaid: B
+          description: 'Discovery of installed network interfaces.'
+          item_prototypes:
+            -
+              uuid: e873d909c1dd452b8d1f03d79966b1e0
+              name: 'Interface {#IFNAME}({#IFALIAS}): Inbound packets discarded'
+              key: 'net.if.in["{#IFGUID}",dropped]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              description: 'The number of incoming packets dropped on the network interface.'
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: description
+                  value: '{#IFALIAS}'
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: 7011c01b43b1469a836332bd67f5fd68
+              name: 'Interface {#IFNAME}({#IFALIAS}): Inbound packets with errors'
+              key: 'net.if.in["{#IFGUID}",errors]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              description: 'The number of incoming packets with errors on the network interface.'
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: description
+                  value: '{#IFALIAS}'
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: 27af1fc930ba4086a6f3116ecfcfcb1b
+              name: 'Interface {#IFNAME}({#IFALIAS}): Bits received'
+              key: 'net.if.in["{#IFGUID}"]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              units: bps
+              description: 'Incoming traffic on the network interface.'
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+                -
+                  type: MULTIPLIER
+                  parameters:
+                    - '8'
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: description
+                  value: '{#IFALIAS}'
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: 2c327f1b6ba8401a9a178e3e37d6ca17
+              name: 'Interface {#IFNAME}({#IFALIAS}): Outbound packets discarded'
+              key: 'net.if.out["{#IFGUID}",dropped]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              description: 'The number of outgoing packets dropped on the network interface.'
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: description
+                  value: '{#IFALIAS}'
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: 809c33d7e3a84da7b0cf9e23dde5236b
+              name: 'Interface {#IFNAME}({#IFALIAS}): Outbound packets with errors'
+              key: 'net.if.out["{#IFGUID}",errors]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              description: 'The number of outgoing packets with errors on the network interface.'
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: description
+                  value: '{#IFALIAS}'
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: b9b7eb5bc51f40058534d36bc7fa86e1
+              name: 'Interface {#IFNAME}({#IFALIAS}): Bits sent'
+              key: 'net.if.out["{#IFGUID}"]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              units: bps
+              description: 'Outgoing traffic on the network interface.'
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+                -
+                  type: MULTIPLIER
+                  parameters:
+                    - '8'
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: description
+                  value: '{#IFALIAS}'
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: 978b6110ad964eb496f65767d6a4f34c
+              name: 'Interface {#IFNAME}({#IFALIAS}): Speed'
+              type: DEPENDENT
+              key: 'net.if.speed["{#IFGUID}"]'
+              delay: '0'
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              units: bps
+              description: 'Estimated bandwidth of the network interface if any.'
+              preprocessing:
+                -
+                  type: JSONPATH
+                  parameters:
+                    - '$[?(@.GUID == "{#IFGUID}")].Speed.first()'
+                  error_handler: CUSTOM_VALUE
+                  error_handler_params: '0'
+                -
+                  type: JAVASCRIPT
+                  parameters:
+                    - 'return (value==''9223372036854775807'' ? 0 : value)'
+                -
+                  type: DISCARD_UNCHANGED_HEARTBEAT
+                  parameters:
+                    - 1h
+              master_item:
+                key: 'wmi.getall[root\cimv2,"select Name,Description,NetConnectionID,Speed,AdapterTypeId,NetConnectionStatus,GUID from win32_networkadapter where PhysicalAdapter=True and NetConnectionStatus>0"]'
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: description
+                  value: '{#IFALIAS}'
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: 752e34c4ca3b45b7b5c5132159019525
+              name: 'Interface {#IFNAME}({#IFALIAS}): Operational status'
+              type: DEPENDENT
+              key: 'net.if.status["{#IFGUID}"]'
+              delay: '0'
+              history: 7d
+              trends: 180d
+              description: 'The operational status of the network interface.'
+              valuemap:
+                name: 'Win32_NetworkAdapter::NetConnectionStatus'
+              preprocessing:
+                -
+                  type: JSONPATH
+                  parameters:
+                    - '$[?(@.GUID == "{#IFGUID}")].NetConnectionStatus.first()'
+                -
+                  type: DISCARD_UNCHANGED_HEARTBEAT
+                  parameters:
+                    - 1d
+              master_item:
+                key: 'wmi.getall[root\cimv2,"select Name,Description,NetConnectionID,Speed,AdapterTypeId,NetConnectionStatus,GUID from win32_networkadapter where PhysicalAdapter=True and NetConnectionStatus>0"]'
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: description
+                  value: '{#IFALIAS}'
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+              trigger_prototypes:
+                -
+                  uuid: d111b7f86bc14b14a0c48ebb71b994ab
+                  expression: '{$IFCONTROL:"{#IFNAME}"}=1 and last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"])<>2 and (last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"],#1)<>last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"],#2))'
+                  recovery_mode: RECOVERY_EXPRESSION
+                  recovery_expression: 'last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"])=2 or {$IFCONTROL:"{#IFNAME}"}=0'
+                  name: 'Interface {#IFNAME}({#IFALIAS}): Fora do Ar'
+                  opdata: 'Current state: {ITEM.LASTVALUE1}'
+                  priority: HIGH
+                  description: |
+                    This trigger expression works as follows:
+                    1. Can be triggered if operations status is down.
+                    2. {$IFCONTROL:\"{#IFNAME}\"}=1 - user can redefine Context macro to value - 0. That marks this interface as not important.
+                        No new trigger will be fired if this interface is down.
+                    3. {TEMPLATE_NAME:METRIC.diff()}=1) - trigger fires only if operational status is different from Connected(2).
+                    
+                    WARNING: if closed manually - won't fire again on next poll, because of .diff.
+                  manual_close: 'YES'
+                  tags:
+                    -
+                      tag: scope
+                      value: availability
+            -
+              uuid: 2626a596b3bb40939c171604e742ed24
+              name: 'Interface {#IFNAME}({#IFALIAS}): Interface type'
+              type: DEPENDENT
+              key: 'net.if.type["{#IFGUID}"]'
+              delay: '0'
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              description: 'The type of the network interface.'
+              valuemap:
+                name: 'Win32_NetworkAdapter::AdapterTypeId'
+              preprocessing:
+                -
+                  type: JSONPATH
+                  parameters:
+                    - '$[?(@.GUID == "{#IFGUID}")].AdapterTypeId.first()'
+                -
+                  type: DISCARD_UNCHANGED_HEARTBEAT
+                  parameters:
+                    - 1d
+              master_item:
+                key: 'wmi.getall[root\cimv2,"select Name,Description,NetConnectionID,Speed,AdapterTypeId,NetConnectionStatus,GUID from win32_networkadapter where PhysicalAdapter=True and NetConnectionStatus>0"]'
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: description
+                  value: '{#IFALIAS}'
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+          trigger_prototypes:
+            -
+              uuid: 4a575f6e7b1c452dbba33f6643415b31
+              expression: |
+                change(/Interfaces de Rede Windows/net.if.speed["{#IFGUID}"])<0 and
+                last(/Interfaces de Rede Windows/net.if.speed["{#IFGUID}"])>0 and
+                last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"])=2
+              name: 'Interface {#IFNAME}({#IFALIAS}): Ethernet has changed to lower speed than it was before'
+              opdata: 'Current reported speed: {ITEM.LASTVALUE1}'
+              status: DISABLED
+              discover: NO_DISCOVER
+              priority: INFO
+              description: 'This Ethernet connection has transitioned down from its known maximum speed. This might be a sign of autonegotiation issues. Ack to close.'
+              manual_close: 'YES'
+              dependencies:
+                -
+                  name: 'Interface {#IFNAME}({#IFALIAS}): Fora do Ar'
+                  expression: '{$IFCONTROL:"{#IFNAME}"}=1 and last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"])<>2 and (last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"],#1)<>last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"],#2))'
+                  recovery_expression: 'last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"])=2 or {$IFCONTROL:"{#IFNAME}"}=0'
+              tags:
+                -
+                  tag: scope
+                  value: capacity
+            -
+              uuid: dfd8df7cf2984141895b0ba7d26f7698
+              expression: |
+                (avg(/Interfaces de Rede Windows/net.if.in["{#IFGUID}"],15m)>({$IF.UTIL.MAX:"{#IFNAME}"}/100)*last(/Interfaces de Rede Windows/net.if.speed["{#IFGUID}"]) or
+                avg(/Interfaces de Rede Windows/net.if.out["{#IFGUID}"],15m)>({$IF.UTIL.MAX:"{#IFNAME}"}/100)*last(/Interfaces de Rede Windows/net.if.speed["{#IFGUID}"])) and
+                last(/Interfaces de Rede Windows/net.if.speed["{#IFGUID}"])>0
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: |
+                avg(/Interfaces de Rede Windows/net.if.in["{#IFGUID}"],15m)<(({$IF.UTIL.MAX:"{#IFNAME}"}-3)/100)*last(/Interfaces de Rede Windows/net.if.speed["{#IFGUID}"]) and
+                avg(/Interfaces de Rede Windows/net.if.out["{#IFGUID}"],15m)<(({$IF.UTIL.MAX:"{#IFNAME}"}-3)/100)*last(/Interfaces de Rede Windows/net.if.speed["{#IFGUID}"])
+              name: 'Interface {#IFNAME}({#IFALIAS}): High bandwidth usage (>{$IF.UTIL.MAX:"{#IFNAME}"}%)'
+              opdata: 'In: {ITEM.LASTVALUE1}, out: {ITEM.LASTVALUE3}, speed: {ITEM.LASTVALUE2}'
+              status: DISABLED
+              discover: NO_DISCOVER
+              priority: WARNING
+              description: 'The network interface utilization is close to its estimated maximum bandwidth.'
+              manual_close: 'YES'
+              dependencies:
+                -
+                  name: 'Interface {#IFNAME}({#IFALIAS}): Fora do Ar'
+                  expression: '{$IFCONTROL:"{#IFNAME}"}=1 and last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"])<>2 and (last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"],#1)<>last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"],#2))'
+                  recovery_expression: 'last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"])=2 or {$IFCONTROL:"{#IFNAME}"}=0'
+              tags:
+                -
+                  tag: scope
+                  value: performance
+            -
+              uuid: cd7dc4bd01164e9a895f7cc7dc49eea6
+              expression: |
+                min(/Interfaces de Rede Windows/net.if.in["{#IFGUID}",errors],5m)>{$IF.ERRORS.WARN:"{#IFNAME}"}
+                or min(/Interfaces de Rede Windows/net.if.out["{#IFGUID}",errors],5m)>{$IF.ERRORS.WARN:"{#IFNAME}"}
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: |
+                max(/Interfaces de Rede Windows/net.if.in["{#IFGUID}",errors],5m)<{$IF.ERRORS.WARN:"{#IFNAME}"}*0.8
+                and max(/Interfaces de Rede Windows/net.if.out["{#IFGUID}",errors],5m)<{$IF.ERRORS.WARN:"{#IFNAME}"}*0.8
+              name: 'Interface {#IFNAME}({#IFALIAS}): High error rate (>{$IF.ERRORS.WARN:"{#IFNAME}"} for 5m)'
+              opdata: 'errors in: {ITEM.LASTVALUE1}, errors out: {ITEM.LASTVALUE2}'
+              status: DISABLED
+              discover: NO_DISCOVER
+              priority: WARNING
+              description: 'Recovers when below 80% of {$IF.ERRORS.WARN:"{#IFNAME}"} threshold'
+              manual_close: 'YES'
+              dependencies:
+                -
+                  name: 'Interface {#IFNAME}({#IFALIAS}): Fora do Ar'
+                  expression: '{$IFCONTROL:"{#IFNAME}"}=1 and last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"])<>2 and (last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"],#1)<>last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"],#2))'
+                  recovery_expression: 'last(/Interfaces de Rede Windows/net.if.status["{#IFGUID}"])=2 or {$IFCONTROL:"{#IFNAME}"}=0'
+              tags:
+                -
+                  tag: scope
+                  value: availability
+          graph_prototypes:
+            -
+              uuid: 79fc4ce29ab645608f02547c8dc0c0a0
+              name: 'Interface {#IFNAME}({#IFALIAS}): Network traffic'
+              graph_items:
+                -
+                  color: 1A7C11
+                  item:
+                    host: 'Interfaces de Rede Windows'
+                    key: 'net.if.in["{#IFGUID}"]'
+                -
+                  sortorder: '1'
+                  color: 2774A4
+                  item:
+                    host: 'Interfaces de Rede Windows'
+                    key: 'net.if.out["{#IFGUID}"]'
+          master_item:
+            key: 'wmi.getall[root\cimv2,"select Name,Description,NetConnectionID,Speed,AdapterTypeId,NetConnectionStatus,GUID from win32_networkadapter where PhysicalAdapter=True and NetConnectionStatus>0"]'
+          preprocessing:
+            -
+              type: JAVASCRIPT
+              parameters:
+                - |
+                  output = JSON.parse(value).map(function(net){
+                      return {
+                          "{#IFNAME}": net.Name,
+                          "{#IFDESCR}": net.Description,
+                          "{#IFALIAS}": net.NetConnectionID,
+                          "{#IFGUID}": net.GUID
+                      }})
+                  return JSON.stringify({"data": output})
+            -
+              type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 1h
+      macros:
+        -
+          macro: '{$IF.ERRORS.WARN}'
+          value: '2'
+        -
+          macro: '{$IF.UTIL.MAX}'
+          value: '90'
+        -
+          macro: '{$IFCONTROL}'
+          value: '1'
+        -
+          macro: '{$NET.IF.IFALIAS.MATCHES}'
+          value: '.*'
+          description: 'This macro is used in Network interface discovery. Can be overridden on the host or linked template level.'
+        -
+          macro: '{$NET.IF.IFALIAS.NOT_MATCHES}'
+          value: CHANGE_THIS
+          description: 'This macro is used in Network interface discovery. Can be overridden on the host or linked template level.'
+        -
+          macro: '{$NET.IF.IFDESCR.MATCHES}'
+          value: '.*'
+          description: 'This macro is used in Network interface discovery. Can be overridden on the host or linked template level.'
+        -
+          macro: '{$NET.IF.IFDESCR.NOT_MATCHES}'
+          value: CHANGE_THIS
+          description: 'This macro is used in Network interface discovery. Can be overridden on the host or linked template level.'
+        -
+          macro: '{$NET.IF.IFNAME.MATCHES}'
+          value: '.*'
+          description: 'This macro is used in Network interface discovery. Can be overridden on the host or linked template level.'
+        -
+          macro: '{$NET.IF.IFNAME.NOT_MATCHES}'
+          value: Miniport|Virtual|Teredo|Kernel|Loopback|Bluetooth|HTTPS|6to4|QoS|Layer
+          description: 'This macro is used in Network interface discovery. Can be overridden on the host or linked template level.'
+      dashboards:
+        -
+          uuid: 0a8a6a7bdc214d24ae1f6762fb232939
+          name: 'Network interfaces'
+          pages:
+            -
+              widgets:
+                -
+                  type: GRAPH_PROTOTYPE
+                  width: '24'
+                  height: '5'
+                  fields:
+                    -
+                      type: INTEGER
+                      name: source_type
+                      value: '2'
+                    -
+                      type: INTEGER
+                      name: columns
+                      value: '1'
+                    -
+                      type: INTEGER
+                      name: rows
+                      value: '1'
+                    -
+                      type: GRAPH_PROTOTYPE
+                      name: graphid
+                      value:
+                        name: 'Interface {#IFNAME}({#IFALIAS}): Network traffic'
+                        host: 'Interfaces de Rede Windows'
+      valuemaps:
+        -
+          uuid: c02c0c6837c64744ae68c49ecf0d55c5
+          name: 'Win32_NetworkAdapter::AdapterTypeId'
+          mappings:
+            -
+              value: '0'
+              newvalue: 'Ethernet 802.3'
+            -
+              value: '1'
+              newvalue: 'Token Ring 802.5'
+            -
+              value: '2'
+              newvalue: 'Fiber Distributed Data Interface (FDDI)'
+            -
+              value: '3'
+              newvalue: 'Wide Area Network (WAN)'
+            -
+              value: '4'
+              newvalue: LocalTalk
+            -
+              value: '5'
+              newvalue: 'Ethernet using DIX header format'
+            -
+              value: '6'
+              newvalue: ARCNET
+            -
+              value: '7'
+              newvalue: 'ARCNET (878.2)'
+            -
+              value: '8'
+              newvalue: ATM
+            -
+              value: '9'
+              newvalue: Wireless
+            -
+              value: '10'
+              newvalue: 'Infrared Wireless'
+            -
+              value: '11'
+              newvalue: Bpc
+            -
+              value: '12'
+              newvalue: CoWan
+            -
+              value: '13'
+              newvalue: '1394'
+        -
+          uuid: f064903940fb4d9db740e9b11b0a5f03
+          name: 'Win32_NetworkAdapter::NetConnectionStatus'
+          mappings:
+            -
+              value: '0'
+              newvalue: Disconnected
+            -
+              value: '1'
+              newvalue: Connecting
+            -
+              value: '2'
+              newvalue: Connected
+            -
+              value: '3'
+              newvalue: Disconnecting
+            -
+              value: '4'
+              newvalue: 'Hardware Not Present'
+            -
+              value: '5'
+              newvalue: 'Hardware Disabled'
+            -
+              value: '6'
+              newvalue: 'Hardware Malfunction'
+            -
+              value: '7'
+              newvalue: 'Media Disconnected'
+            -
+              value: '8'
+              newvalue: Authenticating
+            -
+              value: '9'
+              newvalue: 'Authentication Succeeded'
+            -
+              value: '10'
+              newvalue: 'Authentication Failed'
+            -
+              value: '11'
+              newvalue: 'Invalid Address'
+            -
+              value: '12'
+              newvalue: 'Credentials Required'

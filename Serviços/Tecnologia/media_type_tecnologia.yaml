@@ -1,0 +1,55 @@
+zabbix_export:
+  version: '6.0'
+  date: '2024-01-18T17:09:12Z'
+  media_types:
+    -
+      name: 'Notificar via Email Lista Tecnologia'
+      type: EMAIL
+      smtp_server: 100.1.0.91
+      smtp_helo: 100.1.0.91
+      smtp_email: zabbix@eptv.com.br
+      max_sessions: '0'
+      message_templates:
+        -
+          event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {HOST.NAME} {EVENT.NAME}'
+          message: |
+            <br>
+            <b>Problema iniciado</b> em {EVENT.TIME} de {EVENT.DATE}<br>
+            <b>Problema:</b> {EVENT.NAME}<br>
+            <b>Host:</b> {HOST.NAME}<br>
+            <b>Severidade:</b> {EVENT.SEVERITY}<br>
+            <b>Status Atual:</b> {EVENT.OPDATA}<br>
+            <b>ID do problema:</b> {EVENT.ID}<br>
+            <b>IP:</b> {HOST.IP}<br>
+            {TRIGGER.URL}
+        -
+          event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: '{HOST.NAME} Resolvido em {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            <br>
+            <b>Problema foi resolvido</b> em {EVENT.RECOVERY.TIME} de {EVENT.RECOVERY.DATE}<br>
+            <b>Problema:</b> {EVENT.NAME}<br>
+            <b>Duracao:</b> {EVENT.DURATION}<br>
+            <b>Host:</b> {HOST.NAME}<br>
+            <b>Severidade:</b> {EVENT.SEVERITY}<br>
+            <b>ID do problema:</b> {EVENT.ID}<br>
+            <b>IP:</b> {HOST.IP}<br>
+            {TRIGGER.URL}
+        -
+          event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: '{HOST.NAME} Updated problem in {EVENT.AGE}: {EVENT.NAME}'
+          message: '<b>{USER.FULLNAME} {EVENT.UPDATE.ACTION} problem</b> at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.<br>{EVENT.UPDATE.MESSAGE}<br><br><b>Current problem status:</b> {EVENT.STATUS}<br><b>Age:</b> {EVENT.AGE}<br><b>Acknowledged:</b> {EVENT.ACK.STATUS}.<b>IP Address:</b> {HOST.IP}<br>'
+        -
+          event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: 'Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: '<b>Discovery rule:</b> {DISCOVERY.RULE.NAME}<br><br><b>Device IP:</b> {DISCOVERY.DEVICE.IPADDRESS}<br><b>Device DNS:</b> {DISCOVERY.DEVICE.DNS}<br><b>Device status:</b> {DISCOVERY.DEVICE.STATUS}<br><b>Device uptime:</b> {DISCOVERY.DEVICE.UPTIME}<br><br><b>Device service name:</b> {DISCOVERY.SERVICE.NAME}<br><b>Device service port:</b> {DISCOVERY.SERVICE.PORT}<br><b>Device service status:</b> {DISCOVERY.SERVICE.STATUS}<br><b>Device service uptime:</b> {DISCOVERY.SERVICE.UPTIME}'
+        -
+          event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: 'Autoregistration: {HOST.HOST}'
+          message: '<b>Host name:</b> {HOST.HOST}<br><b>Host IP:</b> {HOST.IP}<br><b>Agent port:</b> {HOST.PORT}'

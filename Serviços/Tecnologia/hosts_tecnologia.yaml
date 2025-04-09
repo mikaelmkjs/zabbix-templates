@@ -1,0 +1,1196 @@
+zabbix_export:
+  version: '6.0'
+  date: '2024-01-18T16:57:51Z'
+  groups:
+    -
+      uuid: a7cb27f6b9cf4d7b9259d7b3fb77dbcb
+      name: TECNOLOGIA
+  hosts:
+    -
+      host: 'Agenda Agronegocio'
+      name: 'Agenda Agronegocio'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.agendaagronegocio.com/'
+      inventory_mode: DISABLED
+    -
+      host: 'Agenda Barretos'
+      name: 'Agenda Barretos'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.agendabarretos.com/'
+      inventory_mode: DISABLED
+    -
+      host: 'Agenda Campinas'
+      name: 'Agenda Campinas'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.agendacampinas.com/'
+      inventory_mode: DISABLED
+    -
+      host: 'Agenda Franca'
+      name: 'Agenda Franca'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.agendafranca.com/'
+      inventory_mode: DISABLED
+    -
+      host: 'Agenda Limeira'
+      name: 'Agenda Limeira'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.agendalimeira.com/'
+      inventory_mode: DISABLED
+    -
+      host: 'Agenda Piracicaba'
+      name: 'Agenda Piracicaba'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.agendapiracicaba.com/'
+      inventory_mode: DISABLED
+    -
+      host: 'Agenda Ribeirao'
+      name: 'Agenda Ribeirao'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.agendaribeirao.com/'
+      inventory_mode: DISABLED
+    -
+      host: 'Agenda Rio Claro'
+      name: 'Agenda Rio Claro'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.agendarioclaro.com/'
+      inventory_mode: DISABLED
+    -
+      host: 'Agenda Sao Carlos'
+      name: 'Agenda Sao Carlos'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.agendasaocarlos.com/'
+      inventory_mode: DISABLED
+    -
+      host: 'API Contacts'
+      name: 'API Contacts'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-contacts-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: 'API Content'
+      name: 'API Content'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-contents-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: 'API Customer'
+      name: 'API Customer'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-customers-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: 'API Customized'
+      name: 'API Customized'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-customized-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: 'API Financial'
+      name: 'API Financial'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-financial-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: 'API Fiscal'
+      name: 'API Fiscal'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-fiscal-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: 'API Leads'
+      name: 'API Leads'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-leads-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: 'API MarketPlace'
+      name: 'API MarketPlace'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-mktplace-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: 'API PreSalesOrder'
+      name: 'API PreSalesOrder'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-ordered-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: 'API Products'
+      name: 'API Products'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-products-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: 'API Sales'
+      name: 'API Sales'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-sales-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: 'API SysAdmin'
+      name: 'API SysAdmin'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://api-sisgav-sysadmin-aws.empresaspioneiras.com.br/index.html'
+      inventory_mode: DISABLED
+    -
+      host: Break
+      name: Break
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://negocios.empresaspioneiras.com.br/break/'
+      inventory_mode: DISABLED
+    -
+      host: 'CBN Araraquara'
+      name: 'CBN Araraquara'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.cbnararaquara.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'CBN Campinas'
+      name: 'CBN Campinas'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://portalcbncampinas.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'CBN Campinas Player'
+      name: 'CBN Campinas Player'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://streaming.empresaspioneiras.com.br/cbncampinas/stream.m3u8'
+      inventory_mode: DISABLED
+    -
+      host: 'CBN Ribeirao'
+      name: 'CBN Ribeirao'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.cbnribeirao.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'CBN Ribeirao Noticia Interna'
+      name: 'CBN Ribeirao Noticia Interna'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.cbnribeirao.com.br/noticias/SOM,0,1,151336,pesquisa-do-crecisp-aponta-perspectiva-de-queda-nas-vendas-para-o-mercado-imobiliario-regional.aspx'
+      inventory_mode: DISABLED
+    -
+      host: 'CBN Ribeirao Preto Player'
+      name: 'CBN Ribeirao Preto Player'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://streaming.empresaspioneiras.com.br/cbnribeirao/stream.m3u8'
+      inventory_mode: DISABLED
+    -
+      host: 'CBN Sao Carlos'
+      name: 'CBN Sao Carlos'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.cbnsaocarlos.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Cidade On WP'
+      name: 'Cidade On WP'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.acidadeon.com/'
+      inventory_mode: DISABLED
+    -
+      host: 'Conexao Solidaria'
+      name: 'Conexao Solidaria'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://conexaosolidaria.eptv.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: Dialogosnaeducacao
+      name: Dialogosnaeducacao
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.dialogosnaeducacao.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: E-partner
+      name: E-partner
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://negocios.empresaspioneiras.com.br/e-partner/'
+      inventory_mode: DISABLED
+    -
+      host: 'Empresas Pioneiras'
+      name: 'Empresas Pioneiras'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.empresaspioneiras.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'EP Acidadeon CP'
+      name: 'EP Acidadeon CP'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://ep.acidadeon.com/conteudo-patrocinado/'
+      inventory_mode: DISABLED
+    -
+      host: 'EP Acidadeon CP Araraquara'
+      name: 'EP Acidadeon CP Araraquara'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://ep.acidadeon.com/araraquara/conteudo-patrocinado/'
+      inventory_mode: DISABLED
+    -
+      host: 'EP Acidadeon CP Campinas'
+      name: 'EP Acidadeon CP Campinas'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://ep.acidadeon.com/campinas/conteudo-patrocinado/'
+      inventory_mode: DISABLED
+    -
+      host: 'EP Acidadeon CP Rib'
+      name: 'EP Acidadeon CP Rib'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://ep.acidadeon.com/ribeiraopreto/conteudo-patrocinado/'
+      inventory_mode: DISABLED
+    -
+      host: 'EP Acidadeon CP Sao Carlos'
+      name: 'EP Acidadeon CP Sao Carlos'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://ep.acidadeon.com/saocarlos/conteudo-patrocinado/'
+      inventory_mode: DISABLED
+    -
+      host: 'EP FM'
+      name: 'EP FM'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.epfm.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'EP Radio'
+      name: 'EP Radio'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.epradio.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: EPTicekts
+      name: EPTicekts
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.eptickets.com.br/home'
+      inventory_mode: DISABLED
+    -
+      host: 'Ester Agroindustrial'
+      name: 'Ester Agroindustrial'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.esteragroindustrial.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: Glebassaoquirino
+      name: Glebassaoquirino
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.glebassaoquirino.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Institucional EPTV'
+      name: 'Institucional EPTV'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://institucional.eptv.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Instituto EP'
+      name: 'Instituto EP'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.institutoep.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: Intranet01
+      name: Intranet01
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://intranet01.corp.eptv/'
+      inventory_mode: DISABLED
+    -
+      host: Intranet02
+      name: Intranet02
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://intranet02.corp.eptv/'
+      inventory_mode: DISABLED
+    -
+      host: Intranet03
+      name: Intranet03
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://intranet03.corp.eptv/'
+      inventory_mode: DISABLED
+    -
+      host: Intranet04
+      name: Intranet04
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://intranet04.corp.eptv/'
+      inventory_mode: DISABLED
+    -
+      host: 'Motor do Futuro'
+      name: 'Motor do Futuro'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.motordofuturo.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Negocios Empresas Pioneiras'
+      name: 'Negocios Empresas Pioneiras'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://negocios.empresaspioneiras.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'OA Eventos'
+      name: 'OA Eventos'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.oaeventos.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: Parquemandassaia
+      name: Parquemandassaia
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.parquemandassaia.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Player EP FM Araraquara'
+      name: 'Player EP FM Araraquara'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://streaming2.empresaspioneiras.com.br/epfmararaquara/stream.m3u8'
+      inventory_mode: DISABLED
+    -
+      host: 'Player EP FM Campinas'
+      name: 'Player EP FM Campinas'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://a5.asurahosting.com/listen/epfm_campinas/radio.mp3'
+      inventory_mode: DISABLED
+    -
+      host: 'Player EP FM Sao Carlos'
+      name: 'Player EP FM Sao Carlos'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://streaming2.empresaspioneiras.com.br/epfmsaocarlos/stream.m3u8'
+      inventory_mode: DISABLED
+    -
+      host: 'Projetos Empresas Pioneiras'
+      name: 'Projetos Empresas Pioneiras'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://projetos.empresaspioneiras.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Redirect Campanha Aedes Aegypti - protocolo HTTP'
+      name: 'Redirect Campanha Aedes Aegypti - protocolo HTTP'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://mutiraoregional.eptv.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Redirect Campanha do Agasalho - protocolo HTTP'
+      name: 'Redirect Campanha do Agasalho - protocolo HTTP'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://campanhadoagasalho.eptv.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Redirect Corrida Integracao - protocolo HTTP'
+      name: 'Redirect Corrida Integracao - protocolo HTTP'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://corridaintegracao.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Redirect FUTSAL - protocolo HTTP'
+      name: 'Redirect FUTSAL - protocolo HTTP'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'http://www.futsaleptv.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Ribeirao Motofestival'
+      name: 'Ribeirao Motofestival'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.ribeiraomotofestival.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Ta Combinado'
+      name: 'Ta Combinado'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://tacombinado.eptv.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'Virando Bixo'
+      name: 'Virando Bixo'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.virandobixo.com.br/'
+      inventory_mode: DISABLED
+    -
+      host: 'WP Tudo EP'
+      name: 'WP Tudo EP'
+      templates:
+        -
+          name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      tags:
+        -
+          tag: Web
+          value: 'Web sites'
+      macros:
+        -
+          macro: '{$URL}'
+          value: 'https://www.tudoep.com/'
+      inventory_mode: DISABLED

@@ -1,0 +1,52 @@
+zabbix_export:
+  version: '6.0'
+  date: '2024-01-18T16:59:12Z'
+  groups:
+    -
+      uuid: a7cb27f6b9cf4d7b9259d7b3fb77dbcb
+      name: TECNOLOGIA
+  templates:
+    -
+      uuid: b8b2b86d64d04326a372f6890ee46666
+      template: 'DISPONIBILIDADE WEBSITES'
+      name: 'DISPONIBILIDADE WEBSITES'
+      groups:
+        -
+          name: TECNOLOGIA
+      httptests:
+        -
+          uuid: db1ae63888cf4fe49694c7e0507beb83
+          name: 'Web scenario: Availability of {$URL}'
+          delay: 2m
+          steps:
+            -
+              name: 'Check {$URL}'
+              url: '{$URL}'
+              retrieve_mode: BOTH
+              timeout: 30s
+              status_codes: '200'
+          tags:
+            -
+              tag: check
+              value: websites
+      tags:
+        -
+          tag: web
+      macros:
+        -
+          macro: '{$URL}'
+      valuemaps:
+        -
+          uuid: 3b965e358189499093859683192558ee
+          name: 'Code Response'
+          mappings:
+            -
+              value: '200'
+              newvalue: OK
+  triggers:
+    -
+      uuid: e5d7995ce6c24628b294e612552308c3
+      expression: 'count(/DISPONIBILIDADE WEBSITES/web.test.rspcode[Web scenario: Availability of {$URL},Check {$URL}],#2,,"200")=0'
+      name: '{$URL} indisponivel'
+      priority: DISASTER
+      manual_close: 'YES'

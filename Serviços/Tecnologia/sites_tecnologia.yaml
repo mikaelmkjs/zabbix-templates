@@ -1,0 +1,774 @@
+zabbix_export:
+  version: '6.0'
+  date: '2024-01-18T16:58:41Z'
+  groups:
+    -
+      uuid: a7cb27f6b9cf4d7b9259d7b3fb77dbcb
+      name: TECNOLOGIA
+  hosts:
+    -
+      host: 'SITES - TECNOLOGIA'
+      name: 'SITES - TECNOLOGIA'
+      groups:
+        -
+          name: TECNOLOGIA
+      httptests:
+        -
+          name: 'Agenda Agronegocio'
+          delay: 2m
+          steps:
+            -
+              name: 'Agenda Agronegocio'
+              url: 'https://www.agendaagronegocio.com/'
+              timeout: 30s
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Agenda Agronegocio'
+        -
+          name: 'Agenda Araraquara'
+          delay: 2m
+          steps:
+            -
+              name: 'Agenda Araraquara'
+              url: 'https://www.agendaararaquara.com/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Agenda Araraquara'
+        -
+          name: 'Agenda Barretos'
+          delay: 2m
+          steps:
+            -
+              name: 'Agenda Barretos'
+              url: 'https://www.agendabarretos.com/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Agenda Barretos'
+        -
+          name: 'Agenda Campinas'
+          delay: 2m
+          steps:
+            -
+              name: 'Agenda Campinas'
+              url: 'https://www.agendacampinas.com/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Agenda Campinas'
+        -
+          name: 'Agenda Franca'
+          delay: 2m
+          steps:
+            -
+              name: 'Agenda Franca'
+              url: 'https://www.agendafranca.com/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Agenda Franca'
+        -
+          name: 'Agenda Limeira'
+          delay: 2m
+          steps:
+            -
+              name: 'Agenda Limeira'
+              url: 'https://www.agendalimeira.com/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Agenda Limeira'
+        -
+          name: 'Agenda Piracicaba'
+          delay: 2m
+          steps:
+            -
+              name: 'Agenda Piracicaba'
+              url: 'https://www.agendapiracicaba.com/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Agenda Piracicaba'
+        -
+          name: 'Agenda Ribeirao'
+          delay: 2m
+          steps:
+            -
+              name: 'Agenda Ribeirao'
+              url: 'https://www.agendaribeirao.com/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Agenda Ribeirao'
+        -
+          name: 'Agenda Rio Claro'
+          delay: 2m
+          steps:
+            -
+              name: 'Agenda Rio Claro'
+              url: 'https://www.agendarioclaro.com/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Agenda Rio Claro'
+        -
+          name: 'Agenda São Carlos'
+          delay: 2m
+          steps:
+            -
+              name: 'Agenda São Carlos'
+              url: 'https://www.agendasaocarlos.com/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Agenda São Carlos'
+        -
+          name: 'API Contacts'
+          delay: 2m
+          steps:
+            -
+              name: 'API Contacts'
+              url: 'https://api-sisgav-contacts-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API Contacts'
+        -
+          name: 'API Content'
+          delay: 2m
+          steps:
+            -
+              name: 'API Content'
+              url: 'https://api-sisgav-contents-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API Content'
+        -
+          name: 'API Customer'
+          delay: 2m
+          steps:
+            -
+              name: 'API Customer'
+              url: 'https://api-sisgav-customers-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API Customer'
+        -
+          name: 'API Customized'
+          delay: 2m
+          steps:
+            -
+              name: 'API Customized'
+              url: 'https://api-sisgav-customized-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API Customized'
+        -
+          name: 'API Financial'
+          delay: 2m
+          steps:
+            -
+              name: 'API Financial'
+              url: 'https://api-sisgav-financial-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API Financial'
+        -
+          name: 'API Fiscal'
+          delay: 2m
+          steps:
+            -
+              name: 'API Fiscal'
+              url: 'https://api-sisgav-fiscal-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API Fiscal'
+        -
+          name: 'API Leads'
+          delay: 2m
+          steps:
+            -
+              name: 'API Leads'
+              url: 'https://api-sisgav-leads-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API Leads'
+        -
+          name: 'API PreSalesOrder'
+          delay: 2m
+          steps:
+            -
+              name: 'API PreSalesOrder'
+              url: 'https://api-sisgav-ordered-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API PreSalesOrder'
+        -
+          name: 'API Products'
+          delay: 2m
+          steps:
+            -
+              name: 'API Products'
+              url: 'https://api-sisgav-products-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API Products'
+        -
+          name: 'API Reports'
+          delay: 2m
+          steps:
+            -
+              name: 'API Reports'
+              url: 'https://api-sisgav-reports-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API Reports'
+        -
+          name: 'API Sales'
+          delay: 2m
+          steps:
+            -
+              name: 'API Sales'
+              url: 'https://api-sisgav-sales-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API Sales'
+        -
+          name: 'API SysAdmin'
+          delay: 2m
+          steps:
+            -
+              name: 'API SysAdmin'
+              url: 'https://api-sisgav-sysadmin-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API SysAdmin'
+        -
+          name: 'API Ticket'
+          delay: 2m
+          steps:
+            -
+              name: 'API Ticket'
+              url: 'https://api-sisgav-tickets-aws.empresaspioneiras.com.br/index.html'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'API Ticket'
+        -
+          name: 'CBN Campinas'
+          delay: 2m
+          steps:
+            -
+              name: 'CBN Campinas'
+              url: 'https://portalcbncampinas.com.br/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'CBN Campinas'
+        -
+          name: 'CBN Campinas Player'
+          delay: 2m
+          steps:
+            -
+              name: 'CBN Campinas Player'
+              url: 'https://streaming.empresaspioneiras.com.br/cbncampinas/stream.m3u8'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'CBN Campinas Player'
+        -
+          name: 'CBN Ribeirão'
+          delay: 2m
+          steps:
+            -
+              name: 'CBN Ribeirão'
+              url: 'https://www.cbnribeirao.com.br/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'CBN Ribeirão'
+        -
+          name: 'CBN Ribeirão Noticia Interna'
+          delay: 2m
+          steps:
+            -
+              name: 'CBN Ribeirão Noticia Interna'
+              url: 'https://www.cbnribeirao.com.br/noticias/som,0,1,151336,pesquisa-do-crecisp-aponta-perspectiva-de-queda-nas-vendas-para-o-mercado-imobiliario-regional.aspx'
+              timeout: 30s
+              status_codes: '200'
+          tags:
+            -
+              tag: 'CBN Ribeirão Noticia Interna'
+        -
+          name: 'CBN Ribeirão Preto Player'
+          delay: 2m
+          steps:
+            -
+              name: 'CBN Ribeirão Preto Player'
+              url: 'https://streaming.empresaspioneiras.com.br/cbnribeirao/stream.m3u8'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'CBN Ribeirão Preto Player'
+        -
+          name: 'Cidade On WP'
+          delay: 2m
+          steps:
+            -
+              name: 'Cidade On WP'
+              url: 'https://www.acidadeon.com/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Cidade On WP'
+        -
+          name: 'Conexão Solidária'
+          delay: 2m
+          steps:
+            -
+              name: 'Conexão Solidária'
+              url: 'https://conexaosolidaria.eptv.com.br/'
+              timeout: 30s
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Conexão Solidária'
+        -
+          name: Dialogosnaeducacao
+          delay: 2m
+          steps:
+            -
+              name: Dialogosnaeducacao
+              url: 'https://www.dialogosnaeducacao.com.br/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: Dialogosnaeducacao
+        -
+          name: 'Empresas Pioneiras'
+          delay: 2m
+          steps:
+            -
+              name: 'Empresas Pioneiras'
+              url: 'https://www.empresaspioneiras.com.br/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Empresas Pioneiras'
+        -
+          name: 'EP Acidadeon CP'
+          delay: 2m
+          steps:
+            -
+              name: 'EP Acidadeon CP'
+              url: 'https://www.acidadeon.com/conteudo-patrocinado/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'EP Acidadeon CP'
+        -
+          name: 'EP Acidadeon CP Araraquara'
+          delay: 2m
+          steps:
+            -
+              name: 'EP Acidadeon CP Araraquara'
+              url: 'https://www.acidadeon.com/araraquara/conteudo-patrocinado/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'EP Acidadeon CP Araraquara'
+        -
+          name: 'EP Acidadeon CP Campinas'
+          delay: 2m
+          steps:
+            -
+              name: 'EP Acidadeon CP Campinas'
+              url: 'https://acidadeon.com/campinas/conteudo-patrocinado/'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'EP Acidadeon CP Campinas'
+        -
+          name: 'EP Acidadeon CP Rib'
+          delay: 2m
+          steps:
+            -
+              name: 'EP Acidadeon CP Rib'
+              url: 'https://acidadeon.com/ribeiraopreto/conteudo-patrocinado/'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'EP Acidadeon CP Rib'
+        -
+          name: 'EP Acidadeon CP São Carlos'
+          delay: 2m
+          steps:
+            -
+              name: 'EP Acidadeon CP São Carlos'
+              url: 'https://acidadeon.com/saocarlos/conteudo-patrocinado/'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'EP Acidadeon CP São Carlos'
+        -
+          name: 'EP FM'
+          delay: 2m
+          steps:
+            -
+              name: 'EP FM'
+              url: 'https://www.epfm.com.br/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'EP FM'
+        -
+          name: 'EPFM Campinas'
+          delay: 2m
+          steps:
+            -
+              name: 'EPFM Campinas'
+              url: 'https://streaming2.empresaspioneiras.com.br/epfmcampinas/stream.m3u8'
+              timeout: 30s
+              status_codes: '200'
+          tags:
+            -
+              tag: 'EPFM Campinas'
+        -
+          name: 'EP Radio'
+          delay: 2m
+          steps:
+            -
+              name: 'EP Radio'
+              url: 'https://www.epradio.com.br/'
+              timeout: 60s
+              status_codes: '200'
+          tags:
+            -
+              tag: 'EP Radio'
+        -
+          name: EPTicekts
+          delay: 2m
+          steps:
+            -
+              name: EPTicekts
+              url: 'https://eptickets-aws.eptickets.com.br/home'
+              timeout: 30s
+              status_codes: '200'
+          tags:
+            -
+              tag: EPTicekts
+        -
+          name: 'Ester Agroindustrial'
+          delay: 2m
+          steps:
+            -
+              name: 'Ester Agroindustrial'
+              url: 'https://www.esteragroindustrial.com.br/'
+              timeout: 60s
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Ester Agroindustrial'
+        -
+          name: 'Institucional EPTV'
+          delay: 2m
+          steps:
+            -
+              name: 'Institucional EPTV'
+              url: 'https://institucional.eptv.com.br/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Institucional EPTV'
+        -
+          name: 'Instituto EP'
+          delay: 2m
+          steps:
+            -
+              name: 'Instituto EP'
+              url: 'https://www.institutoep.com.br/'
+              timeout: 30s
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Instituto EP'
+        -
+          name: Intranet01
+          delay: 2m
+          steps:
+            -
+              name: Intranet01
+              url: 'http://intranet01.corp.eptv/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: Intranet01
+        -
+          name: Intranet02
+          delay: 2m
+          steps:
+            -
+              name: Intranet02
+              url: 'http://intranet02.corp.eptv/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: Intranet02
+        -
+          name: Intranet03
+          delay: 2m
+          steps:
+            -
+              name: Intranet03
+              url: 'http://intranet03.corp.eptv/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: Intranet03
+        -
+          name: Intranet04
+          delay: 2m
+          steps:
+            -
+              name: Intranet04
+              url: 'http://intranet04.corp.eptv/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: Intranet04
+        -
+          name: 'Motor do Futuro'
+          delay: 2m
+          steps:
+            -
+              name: 'Motor do Futuro'
+              url: 'https://www.motordofuturo.com.br/'
+              timeout: 30s
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Motor do Futuro'
+        -
+          name: 'Negócios EP'
+          delay: 2m
+          steps:
+            -
+              name: 'Negócios EP'
+              url: 'https://www.negociosep.com.br'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Negócios EP'
+        -
+          name: 'OA Eventos'
+          delay: 2m
+          steps:
+            -
+              name: 'OA Eventos'
+              url: 'https://www.oaeventos.com.br/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'OA Eventos'
+        -
+          name: 'Player EP FM Araraquara'
+          delay: 2m
+          steps:
+            -
+              name: 'Player EP FM Araraquara'
+              url: 'https://streaming1.empresaspioneiras.com.br/epfmararaquara/stream.m3u8'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Player EP FM Araraquara'
+        -
+          name: 'Player EP FM Campinas'
+          delay: 2m
+          steps:
+            -
+              name: 'Player EP FM Campinas'
+              url: 'https://a5.asurahosting.com/listen/epfm_campinas/radio.mp3'
+              retrieve_mode: HEADERS
+              timeout: 30s
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Player EP FM Campinas'
+        -
+          name: 'Player EP FM Sao Carlos'
+          delay: 2m
+          steps:
+            -
+              name: 'Player EP FM Sao Carlos'
+              url: 'https://streaming1.empresaspioneiras.com.br/epfmsaocarlos/stream.m3u8'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Player EP FM Sao Carlos'
+        -
+          name: 'Projetos Empresas Pioneiras'
+          delay: 2m
+          steps:
+            -
+              name: 'Projetos Empresas Pioneiras'
+              url: 'https://projetos.empresaspioneiras.com.br/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Projetos Empresas Pioneiras'
+        -
+          name: 'Redirect Campanha Aedes Aegypti (protocolo HTTP)'
+          delay: 2m
+          steps:
+            -
+              name: 'Redirect Campanha Aedes Aegypti (protocolo HTTP)'
+              url: 'https://institucional.eptv.com.br/eventos/institucionais/mutiraoregional/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Redirect Campanha Aedes Aegypti (protocolo HTTP)'
+        -
+          name: 'Redirect Campanha do Agasalho (protocolo HTTP)'
+          delay: 2m
+          steps:
+            -
+              name: 'Redirect Campanha do Agasalho (protocolo HTTP)'
+              url: 'https://institucional.eptv.com.br/eventos/institucionais/campanharegionaldoagasalho/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Redirect Campanha do Agasalho (protocolo HTTP)'
+        -
+          name: 'Redirect Corrida Integracao (protocolo HTTP)'
+          delay: 2m
+          steps:
+            -
+              name: 'Redirect Corrida Integracao (protocolo HTTP)'
+              url: 'https://projetos.empresaspioneiras.com.br/corridaintegracao/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Redirect Corrida Integracao (protocolo HTTP)'
+        -
+          name: 'Redirect FUTSAL (protocolo HTTP)'
+          delay: 2m
+          steps:
+            -
+              name: 'Redirect FUTSAL (protocolo HTTP)'
+              url: 'https://projetos.empresaspioneiras.com.br/futsal/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Redirect FUTSAL (protocolo HTTP)'
+        -
+          name: 'Ribeirão Motofestival'
+          delay: 2m
+          steps:
+            -
+              name: 'Ribeirão Motofestival'
+              url: 'https://www.ribeiraomotofestival.com.br/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Ribeirão Motofestival'
+        -
+          name: 'Ta Combinado'
+          delay: 2m
+          steps:
+            -
+              name: 'Ta Combinado'
+              url: 'https://tacombinado.eptv.com.br/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Ta Combinado'
+        -
+          name: 'Virando Bixo'
+          delay: 2m
+          steps:
+            -
+              name: 'Virando Bixo'
+              url: 'https://www.virandobixo.com.br/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'Virando Bixo'
+        -
+          name: 'WP Tudo EP'
+          delay: 2m
+          steps:
+            -
+              name: 'WP Tudo EP'
+              url: 'https://www.acidadeon.com/tudoep/'
+              follow_redirects: 'NO'
+              status_codes: '200'
+          tags:
+            -
+              tag: 'WP Tudo EP'
+      tags:
+        -
+          tag: websites
+          value: tecnologia
+      inventory_mode: DISABLED

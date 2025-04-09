@@ -1,0 +1,115 @@
+zabbix_export:
+  version: '6.0'
+  date: '2023-12-05T18:58:57Z'
+  groups:
+    -
+      uuid: 7df96b18c230490a9a0a9e2307226338
+      name: Templates
+  templates:
+    -
+      uuid: 4477b6562df54cc1b326da8544dc84f3
+      template: Disponibilidade_ICMP
+      name: Disponibilidade_ICMP
+      description: 'Template Module ICMP Ping version: 0.14'
+      groups:
+        -
+          name: Templates
+      items:
+        -
+          uuid: 33f5d121889643c484702cc6d80532d5
+          name: ping
+          type: SIMPLE
+          key: icmpping
+          delay: 5m
+          history: 1w
+          trends: 180d
+          valuemap:
+            name: 'Service state'
+          tags:
+            -
+              tag: Application
+              value: Status
+          triggers:
+            -
+              uuid: bc8857886c1a4bc096c1c917ff86ea90
+              expression: 'max(/Disponibilidade_ICMP/icmpping,#1)=0'
+              name: 'Servidor Indisponivel'
+              priority: DISASTER
+              description: |
+                Last value: {ITEM.LASTVALUE1}.
+                Last three attempts returned timeout.  Please check device connectivity.
+        -
+          uuid: bb7a8e8b938f42d99d6eae13e4054663
+          name: 'Perda de pacotes'
+          type: SIMPLE
+          key: icmppingloss
+          delay: 5m
+          history: 1w
+          trends: 180d
+          value_type: FLOAT
+          units: '%'
+          tags:
+            -
+              tag: Application
+              value: Status
+          triggers:
+            -
+              uuid: 8154d82cdd084d1a8ac5fe53ba74cdf0
+              expression: 'min(/Disponibilidade_ICMP/icmppingloss,10m)>{$ICMP_LOSS_WARN} and min(/Disponibilidade_ICMP/icmppingloss,5m)<100'
+              name: 'Alta perda de Pacotes'
+              status: DISABLED
+              priority: WARNING
+              dependencies:
+                -
+                  name: 'Servidor Indisponivel'
+                  expression: 'max(/Disponibilidade_ICMP/icmpping,#1)=0'
+        -
+          uuid: d9b478513b61488aaa0541b775918b49
+          name: 'Tempo de Resposta'
+          type: SIMPLE
+          key: icmppingsec
+          delay: 5m
+          history: 1w
+          trends: 180d
+          value_type: FLOAT
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '1000'
+          tags:
+            -
+              tag: Application
+              value: Status
+          triggers:
+            -
+              uuid: aee665b6e1ce4e498f998907ed2881a0
+              expression: 'avg(/Disponibilidade_ICMP/icmppingsec,10m)>{$ICMP_RESPONSE_TIME_WARN}'
+              name: 'Alta Latencia'
+              status: DISABLED
+              priority: AVERAGE
+              dependencies:
+                -
+                  name: 'Alta perda de Pacotes'
+                  expression: 'min(/Disponibilidade_ICMP/icmppingloss,10m)>{$ICMP_LOSS_WARN} and min(/Disponibilidade_ICMP/icmppingloss,5m)<100'
+                -
+                  name: 'Servidor Indisponivel'
+                  expression: 'max(/Disponibilidade_ICMP/icmpping,#1)=0'
+      macros:
+        -
+          macro: '{$ICMP_LOSS_WARN}'
+          value: '20'
+        -
+          macro: '{$ICMP_RESPONSE_TIME_WARN}'
+          value: '35'
+      valuemaps:
+        -
+          uuid: 924937e0ef464f6385943c23b5781059
+          name: 'Service state'
+          mappings:
+            -
+              value: '0'
+              newvalue: Down
+            -
+              value: '1'
+              newvalue: Up

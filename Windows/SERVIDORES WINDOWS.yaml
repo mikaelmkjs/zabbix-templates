@@ -1,0 +1,272 @@
+zabbix_export:
+  version: '6.0'
+  date: '2023-12-05T18:53:23Z'
+  groups:
+    -
+      uuid: 7df96b18c230490a9a0a9e2307226338
+      name: Templates
+  templates:
+    -
+      uuid: 7e86077b4c3b4175b1eea5e1dfae0a80
+      template: 'SERVIDORES WINDOWS'
+      name: 'SERVIDORES WINDOWS'
+      templates:
+        -
+          name: 'Discos Windows'
+        -
+          name: Disponibilidade_ICMP
+        -
+          name: 'Interfaces de Rede Windows'
+      groups:
+        -
+          name: Templates
+      items:
+        -
+          uuid: 681f0199a57e4d2888d4be50dd4b12b4
+          name: 'Zabbix Agent'
+          key: agent.ping
+          delay: 5m
+          history: 7d
+          trends: 180d
+          tags:
+            -
+              tag: 'Application: Status'
+          triggers:
+            -
+              uuid: d541396fbf7e4a89b268f336198602b9
+              expression: 'last(/SERVIDORES WINDOWS/agent.ping)=0 or nodata(/SERVIDORES WINDOWS/agent.ping,10m)=1'
+              name: 'Zabbix Agent esta parado'
+              priority: AVERAGE
+        -
+          uuid: 02777baf0fbe474e8fd8e385fcbee1e5
+          name: 'CPU privileged time'
+          key: 'perf_counter_en["\Processor Information(_total)\% Privileged Time"]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          value_type: FLOAT
+          units: '%'
+          description: |
+            The Processor Information\% Privileged Time counter shows the percent of time that the processor is spent
+            executing in Kernel (or Privileged) mode. Privileged mode includes services interrupts inside Interrupt
+            Service Routines (ISRs), executing Deferred Procedure Calls (DPCs), Device Driver calls and other kernel-mode
+            functions of the Windows® Operating System.
+          tags:
+            -
+              tag: component
+              value: cpu
+        -
+          uuid: f129028d99d4435a9ba3febdc74a9b6d
+          name: 'CPU user time'
+          key: 'perf_counter_en["\Processor Information(_total)\% User Time"]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          value_type: FLOAT
+          units: '%'
+          description: |
+            The Processor Information\% User Time counter shows the percent of time that the processor(s) is spent executing
+            in User mode.
+          tags:
+            -
+              tag: component
+              value: cpu
+        -
+          uuid: fc863c60c07645f29e50a69658f1639f
+          name: 'Processos em Execução'
+          key: 'proc.num[]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          description: 'The number of processes.'
+          tags:
+            -
+              tag: component
+              value: system
+        -
+          uuid: d9db5c4f68ba4b64b1224aa70b6c4150
+          name: '% Utilização de CPU'
+          key: system.cpu.util
+          delay: 5m
+          history: 7d
+          trends: 180d
+          value_type: FLOAT
+          units: '%'
+          description: 'CPU utilization in %'
+          tags:
+            -
+              tag: component
+              value: cpu
+          triggers:
+            -
+              uuid: b649cb7a844f49dc9f4e691770dd6e6d
+              expression: 'min(/SERVIDORES WINDOWS/system.cpu.util,1h)>{$CPU.UTIL.CRIT}'
+              name: 'Alta utilizacao de CPU (maior que {$CPU.UTIL.CRIT}% por 1h)'
+              priority: HIGH
+              manual_close: 'YES'
+            -
+              uuid: 0e4d496138e54051b3f5438dbfa95c57
+              expression: 'min(/SERVIDORES WINDOWS/system.cpu.util,15m)>{$CPU.UTIL.CRIT}'
+              name: 'Alta utilizacao de CPU (maior que {$CPU.UTIL.CRIT}% por 15m)'
+              priority: WARNING
+              manual_close: 'YES'
+            -
+              uuid: ba03b62def5844e783c320c5e6b161e2
+              expression: 'min(/SERVIDORES WINDOWS/system.cpu.util,30m)>{$CPU.UTIL.CRIT}'
+              name: 'Alta utilizacao de CPU (maior que {$CPU.UTIL.CRIT}% por 30m)'
+              priority: AVERAGE
+              manual_close: 'YES'
+        -
+          uuid: 73cc30e18840451484809307c89a0309
+          name: Hostname
+          key: system.hostname
+          delay: 1d
+          history: 7d
+          trends: '0'
+          value_type: CHAR
+          description: 'System host name.'
+          inventory_link: NAME
+          preprocessing:
+            -
+              type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 1d
+          tags:
+            -
+              tag: component
+              value: system
+        -
+          uuid: 11ba65f144f14a55b65435900653e7a0
+          name: Uptime
+          key: system.uptime
+          delay: 10m
+          history: 2w
+          trends: '0'
+          units: uptime
+          description: 'System uptime in ''N days, hh:mm:ss'' format.'
+          tags:
+            -
+              tag: component
+              value: system
+          triggers:
+            -
+              uuid: 73e05aa9ef9a4de3bbf0819764fb3f46
+              expression: 'last(/SERVIDORES WINDOWS/system.uptime)<5'
+              name: 'Servidor foi reiniciado'
+              priority: WARNING
+              manual_close: 'YES'
+        -
+          uuid: 1a0107c8f692419388ec8c3e922e9ac8
+          name: 'Total de Memória'
+          key: 'vm.memory.size[total]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          units: B
+          description: 'Total memory in Bytes'
+          tags:
+            -
+              tag: component
+              value: memory
+        -
+          uuid: 635d0f9a877c47649ab8dc57b85106a7
+          name: 'Total de Memória em uso'
+          key: 'vm.memory.size[used]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          units: B
+          description: 'Used memory in Bytes'
+          tags:
+            -
+              tag: component
+              value: memory
+        -
+          uuid: cac8ae3cc2f6447fba849f42a44e39ec
+          name: '% Utilização de Memória'
+          type: CALCULATED
+          key: vm.memory.util
+          delay: 5m
+          history: 7d
+          trends: 180d
+          value_type: FLOAT
+          units: '%'
+          params: 'last(//vm.memory.size[used]) / last(//vm.memory.size[total]) * 100'
+          description: 'Memory utilization in %'
+          tags:
+            -
+              tag: component
+              value: memory
+          triggers:
+            -
+              uuid: ebb5380d31f541208a5a6642967cb36f
+              expression: 'min(/SERVIDORES WINDOWS/vm.memory.util,1h)>{$MEMORY.UTIL.MAX}'
+              name: 'Alta utilizacao de Memoria (maior que {$MEMORY.UTIL.MAX}% por 1h)'
+              priority: HIGH
+              manual_close: 'YES'
+            -
+              uuid: e7aa77c7045a4579aa55d5546a57f8b5
+              expression: 'min(/SERVIDORES WINDOWS/vm.memory.util,15m)>{$MEMORY.UTIL.MAX}'
+              name: 'Alta utilizacao de Memoria (maior que {$MEMORY.UTIL.MAX}% por 15m)'
+              priority: WARNING
+              manual_close: 'YES'
+            -
+              uuid: 087fd271f14e4ff6acd8ef036dafee45
+              expression: 'min(/SERVIDORES WINDOWS/vm.memory.util,30m)>{$MEMORY.UTIL.MAX}'
+              name: 'Alta utilizacao de Memoria (maior que {$MEMORY.UTIL.MAX}% por 30m)'
+              priority: AVERAGE
+              manual_close: 'YES'
+      macros:
+        -
+          macro: '{$CPU.UTIL.CRIT}'
+          value: '90'
+          description: 'The critical threshold of the CPU utilization in %.'
+        -
+          macro: '{$MEMORY.UTIL.MAX}'
+          value: '90'
+          description: 'The warning threshold of the Memory util item.'
+  graphs:
+    -
+      uuid: 37eeea5108d04f1696af2c7be1a2fcaa
+      name: '% Utilização de CPU'
+      ymin_type_1: FIXED
+      ymax_type_1: FIXED
+      graph_items:
+        -
+          color: 1A7C11
+          item:
+            host: 'SERVIDORES WINDOWS'
+            key: system.cpu.util
+    -
+      uuid: 8bfaee158569498c9699f22bb756aa92
+      name: 'Utilização de CPU'
+      type: STACKED
+      ymin_type_1: FIXED
+      ymax_type_1: FIXED
+      graph_items:
+        -
+          color: 1A7C11
+          item:
+            host: 'SERVIDORES WINDOWS'
+            key: 'perf_counter_en["\Processor Information(_total)\% User Time"]'
+        -
+          sortorder: '1'
+          color: 2774A4
+          item:
+            host: 'SERVIDORES WINDOWS'
+            key: 'perf_counter_en["\Processor Information(_total)\% Privileged Time"]'
+    -
+      uuid: 0e4acf5d08a94a2095ae05fd529db424
+      name: 'Utilização de Memória'
+      graph_items:
+        -
+          color: 199C0D
+          item:
+            host: 'SERVIDORES WINDOWS'
+            key: 'vm.memory.size[total]'
+        -
+          sortorder: '1'
+          color: F63100
+          item:
+            host: 'SERVIDORES WINDOWS'
+            key: 'vm.memory.size[used]'

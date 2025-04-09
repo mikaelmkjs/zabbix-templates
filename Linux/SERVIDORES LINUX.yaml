@@ -1,0 +1,2072 @@
+zabbix_export:
+  version: '6.0'
+  date: '2023-12-05T19:05:32Z'
+  groups:
+    -
+      uuid: 7df96b18c230490a9a0a9e2307226338
+      name: Templates
+  templates:
+    -
+      uuid: 38740499a3754cf39c4971672c92231a
+      template: 'SERVIDORES LINUX'
+      name: 'SERVIDORES LINUX'
+      description: |
+        Official Linux template. Requires agent of Zabbix 3.0.14, 3.4.5 and 4.0.0 or newer.
+        
+        Known Issues:
+        
+          Description: Network discovery. Zabbix agent as of 4.2 doesn't support items such as net.if.status, net.if.speed.
+        
+        You can discuss this template or leave feedback on our forum https://www.zabbix.com/forum/zabbix-suggestions-and-feedback/387225-discussion-thread-for-official-zabbix-template-for-linux
+        
+        Template tooling version used: 0.41
+      templates:
+        -
+          name: Disponibilidade_ICMP
+      groups:
+        -
+          name: Templates
+      items:
+        -
+          uuid: f900a018b399448798c294215e02813e
+          name: 'Agent ping'
+          key: agent.ping
+          delay: 5m
+          history: 7d
+          trends: 180d
+          description: 'The agent always returns 1 for this item. It could be used in combination with nodata() for availability check.'
+          valuemap:
+            name: 'Zabbix agent ping status'
+          tags:
+            -
+              tag: component
+              value: system
+        -
+          uuid: b66ca169ca314619b6ccd773e1ebbf8d
+          name: 'Versao do Agent Zabbix'
+          key: agent.version
+          delay: 1h
+          history: 7d
+          trends: '0'
+          value_type: CHAR
+          preprocessing:
+            -
+              type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 1d
+          tags:
+            -
+              tag: component
+              value: application
+        -
+          uuid: 39c32424543c4f8189bf09a8f861225a
+          name: 'Processos em execucao'
+          key: proc.num
+          delay: 5m
+          history: 7d
+          trends: 180d
+          tags:
+            -
+              tag: component
+              value: system
+        -
+          uuid: 49cfa46057664fd0a19fc8c2f2a911dc
+          name: 'SO Horario'
+          key: system.boottime
+          delay: 1h
+          history: 7d
+          trends: 180d
+          units: unixtime
+          preprocessing:
+            -
+              type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 1h
+          tags:
+            -
+              tag: component
+              value: system
+        -
+          uuid: 6668eff95e6447da9f9e5499e187be0a
+          name: 'Load average (1m avg)'
+          key: 'system.cpu.load[all,avg1]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          value_type: FLOAT
+          tags:
+            -
+              tag: component
+              value: cpu
+        -
+          uuid: 55a97be9566e4dbe8805d97e885d8ceb
+          name: 'Load average (5m avg)'
+          key: 'system.cpu.load[all,avg5]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          value_type: FLOAT
+          tags:
+            -
+              tag: component
+              value: cpu
+        -
+          uuid: 034249bebe3049afa32df38fa29b704d
+          name: 'Load average (15m avg)'
+          key: 'system.cpu.load[all,avg15]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          value_type: FLOAT
+          tags:
+            -
+              tag: component
+              value: cpu
+        -
+          uuid: 73c39e149de74a15930206ded7247ba7
+          name: 'CPU cores'
+          key: system.cpu.num
+          delay: 5m
+          history: 7d
+          trends: 180d
+          preprocessing:
+            -
+              type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 1d
+          tags:
+            -
+              tag: component
+              value: cpu
+        -
+          uuid: 51364919b08844d7a28b4df6624c7b74
+          name: 'Utilizacao de CPU'
+          type: DEPENDENT
+          key: system.cpu.util
+          delay: '0'
+          history: 7d
+          trends: 180d
+          value_type: FLOAT
+          units: '%'
+          description: 'CPU utilization in %'
+          preprocessing:
+            -
+              type: JAVASCRIPT
+              parameters:
+                - |
+                  //Calculate utilization
+                  return (100 - value)
+          master_item:
+            key: 'system.cpu.util[,idle]'
+          tags:
+            -
+              tag: component
+              value: cpu
+          triggers:
+            -
+              uuid: 818e0734704e400d99139508f9263dee
+              expression: 'min(/SERVIDORES LINUX/system.cpu.util,10m)>{$CPU.UTIL.CRIT}'
+              name: 'Alta utilizacao de CPU (maior que {$CPU.UTIL.CRIT}% por 5m)'
+              opdata: 'Current utilization: {ITEM.LASTVALUE1}'
+              priority: WARNING
+              description: 'CPU utilization is too high. The system might be slow to respond.'
+              dependencies:
+                -
+                  name: 'A media de uso da CPU esta muita alta (acima de {$LOAD_AVG_PER_CPU.MAX.WARN} por 5m)'
+                  expression: |
+                    min(/SERVIDORES LINUX/system.cpu.load[all,avg1],10m)/last(/SERVIDORES LINUX/system.cpu.num)>{$LOAD_AVG_PER_CPU.MAX.WARN}
+                    and last(/SERVIDORES LINUX/system.cpu.load[all,avg5])>0
+                    and last(/SERVIDORES LINUX/system.cpu.load[all,avg15])>0
+              tags:
+                -
+                  tag: scope
+                  value: performance
+        -
+          uuid: 94bbf86e053947539625908d5e1f6e6b
+          name: 'CPU idle time'
+          key: 'system.cpu.util[,idle]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          value_type: FLOAT
+          units: '%'
+          description: 'The time the CPU has spent doing nothing.'
+          tags:
+            -
+              tag: component
+              value: cpu
+        -
+          uuid: 408bdc7dedca4e169525375c5e1d9612
+          name: 'SO Nome'
+          key: system.hostname
+          delay: 1h
+          history: 7d
+          trends: '0'
+          value_type: CHAR
+          description: 'System host name.'
+          inventory_link: NAME
+          preprocessing:
+            -
+              type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 12h
+          tags:
+            -
+              tag: component
+              value: system
+          triggers:
+            -
+              uuid: 2a7ab74521b746c1b27043f3d2039784
+              expression: 'last(/SERVIDORES LINUX/system.hostname,#1)<>last(/SERVIDORES LINUX/system.hostname,#2) and length(last(/SERVIDORES LINUX/system.hostname))>0'
+              name: 'System name has changed (new name: {ITEM.VALUE})'
+              status: DISABLED
+              priority: INFO
+              description: 'System name has changed. Ack to close.'
+              manual_close: 'YES'
+              tags:
+                -
+                  tag: scope
+                  value: notice
+                -
+                  tag: scope
+                  value: security
+        -
+          uuid: 249e3574785d497a9b74943f1bd1da3e
+          name: 'SO Horario local'
+          key: system.localtime
+          delay: 5m
+          history: 7d
+          trends: 180d
+          units: unixtime
+          description: 'System local time of the host.'
+          tags:
+            -
+              tag: component
+              value: system
+          triggers:
+            -
+              uuid: b36faf1032da45e2991fe13d4fb92b8e
+              expression: 'fuzzytime(/SERVIDORES LINUX/system.localtime,{$SYSTEM.FUZZYTIME.MAX})=0'
+              name: 'System time is out of sync (diff with Zabbix server > {$SYSTEM.FUZZYTIME.MAX}s)'
+              status: DISABLED
+              priority: WARNING
+              description: 'The host system time is different from the Zabbix server time.'
+              manual_close: 'YES'
+              tags:
+                -
+                  tag: scope
+                  value: availability
+                -
+                  tag: scope
+                  value: performance
+        -
+          uuid: f0c828f6a54f4e2dbf2df8e1dbd59693
+          name: 'SO Arquitetura'
+          key: system.sw.arch
+          delay: 1h
+          history: 7d
+          trends: '0'
+          value_type: CHAR
+          description: 'Operating system architecture of the host.'
+          preprocessing:
+            -
+              type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 1d
+          tags:
+            -
+              tag: component
+              value: os
+        -
+          uuid: 360a10fb7d6a459f9e1781f7ad9a7b32
+          name: 'SO Descricao'
+          key: system.uname
+          delay: 1h
+          history: 7d
+          trends: '0'
+          value_type: CHAR
+          description: 'The information as normally returned by ''uname -a''.'
+          preprocessing:
+            -
+              type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 12h
+          tags:
+            -
+              tag: component
+              value: system
+        -
+          uuid: c27c1b71f64847b1a3753e0b5a43374c
+          name: 'SO Uptime'
+          key: system.uptime
+          delay: 5m
+          history: 7d
+          trends: 180d
+          units: uptime
+          description: 'System uptime in ''N days, hh:mm:ss'' format.'
+          tags:
+            -
+              tag: component
+              value: system
+          triggers:
+            -
+              uuid: db5ea8bb62ed4e57924b9531d3817f43
+              expression: 'last(/SERVIDORES LINUX/system.uptime)<20m'
+              name: '{HOST.NAME} foi reiniciado'
+              priority: WARNING
+              description: 'The host uptime is less than 10 minutes'
+              manual_close: 'YES'
+              tags:
+                -
+                  tag: scope
+                  value: notice
+        -
+          uuid: 071fa92cc67d42d9ada7bfa4d778ce32
+          name: 'Usuarios logados'
+          key: system.users.num
+          delay: 5m
+          history: 7d
+          trends: 180d
+          description: 'Number of users who are currently logged in.'
+          tags:
+            -
+              tag: component
+              value: environment
+        -
+          uuid: 9ab3807ee08d4564b8549ffc68d23115
+          name: 'Checksum of /etc/passwd'
+          key: 'vfs.file.cksum[/etc/passwd,sha256]'
+          delay: 1h
+          history: 7d
+          trends: '0'
+          value_type: CHAR
+          preprocessing:
+            -
+              type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 1h
+          tags:
+            -
+              tag: component
+              value: environment
+          triggers:
+            -
+              uuid: 023f5c69d9f949a7aa956aae1eb9efc2
+              expression: 'last(/SERVIDORES LINUX/vfs.file.cksum[/etc/passwd,sha256],#1)<>last(/SERVIDORES LINUX/vfs.file.cksum[/etc/passwd,sha256],#2)'
+              name: '/etc/passwd Senha do Servidor foi alterada'
+              priority: INFO
+              manual_close: 'YES'
+              dependencies:
+                -
+                  name: 'System name has changed (new name: {ITEM.VALUE})'
+                  expression: 'last(/SERVIDORES LINUX/system.hostname,#1)<>last(/SERVIDORES LINUX/system.hostname,#2) and length(last(/SERVIDORES LINUX/system.hostname))>0'
+              tags:
+                -
+                  tag: scope
+                  value: security
+        -
+          uuid: a65f0f9adad94fafbfb3507ea37b701b
+          name: 'Memoria Disponivel'
+          key: 'vm.memory.size[available]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          units: B
+          description: 'Available memory, in Linux, available = free + buffers + cache. On other platforms calculation may vary. See also Appendixes in Zabbix Documentation about parameters of the vm.memory.size item.'
+          tags:
+            -
+              tag: component
+              value: memory
+        -
+          uuid: faa76ab88efa4b8baf4eb8863672d394
+          name: 'Memoria Disponivel %'
+          key: 'vm.memory.size[pavailable]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          value_type: FLOAT
+          units: '%'
+          description: 'Available memory as percentage of total. See also Appendixes in Zabbix Documentation about parameters of the vm.memory.size item.'
+          tags:
+            -
+              tag: component
+              value: memory
+        -
+          uuid: e13778a1c214400a977cb9b09a9bae8b
+          name: 'Memoria Total'
+          key: 'vm.memory.size[total]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          units: B
+          description: 'Total memory in Bytes'
+          tags:
+            -
+              tag: component
+              value: memory
+        -
+          uuid: 985672c7644743f78d29a168f8b8bc3e
+          name: 'Utilizacao de Memoria'
+          type: DEPENDENT
+          key: vm.memory.utilization
+          delay: '0'
+          history: 7d
+          trends: 180d
+          value_type: FLOAT
+          units: '%'
+          description: 'Memory used percentage is calculated as (100-pavailable)'
+          preprocessing:
+            -
+              type: JAVASCRIPT
+              parameters:
+                - 'return (100-value);'
+          master_item:
+            key: 'vm.memory.size[pavailable]'
+          tags:
+            -
+              tag: component
+              value: memory
+          triggers:
+            -
+              uuid: d27fb68807f745a880fa5dc425410599
+              expression: 'min(/SERVIDORES LINUX/vm.memory.utilization,10m)>{$MEMORY.UTIL.MAX}'
+              name: 'Alta utilizacao de Memoria (maior que {$MEMORY.UTIL.MAX}% por 5m)'
+              priority: AVERAGE
+              description: 'The system is running out of free memory.'
+              dependencies:
+                -
+                  name: 'Falta de memoria disponivel (<{$MEMORY.AVAILABLE.MIN} of {ITEM.VALUE2})'
+                  expression: 'max(/SERVIDORES LINUX/vm.memory.size[available],10m)<{$MEMORY.AVAILABLE.MIN} and last(/SERVIDORES LINUX/vm.memory.size[total])>0'
+              tags:
+                -
+                  tag: scope
+                  value: capacity
+                -
+                  tag: scope
+                  value: performance
+        -
+          uuid: 6313f23c1716456180e035853b20f18e
+          name: 'Disponibilidade Zabbix Agent'
+          type: INTERNAL
+          key: 'zabbix[host,agent,available]'
+          delay: 5m
+          history: 7d
+          trends: 180d
+          description: 'Monitoring agent availability status'
+          valuemap:
+            name: zabbix.host.available
+          tags:
+            -
+              tag: component
+              value: system
+          triggers:
+            -
+              uuid: b6d91d3c7b874969bc8b616eaf039a32
+              expression: 'max(/SERVIDORES LINUX/zabbix[host,agent,available],{$AGENT.TIMEOUT})=0'
+              name: 'Zabbix agent esta parado'
+              priority: AVERAGE
+              description: 'For passive only agents, host availability is used with {$AGENT.TIMEOUT} as time threshold.'
+              manual_close: 'YES'
+              tags:
+                -
+                  tag: scope
+                  value: availability
+      discovery_rules:
+        -
+          uuid: c692aee65a11473fa68bef9f4a551b90
+          name: 'Network interface discovery'
+          key: net.if.discovery
+          delay: 1h
+          filter:
+            evaltype: AND
+            conditions:
+              -
+                macro: '{#IFNAME}'
+                value: '{$NET.IF.IFNAME.MATCHES}'
+                formulaid: A
+              -
+                macro: '{#IFNAME}'
+                value: '{$NET.IF.IFNAME.NOT_MATCHES}'
+                operator: NOT_MATCHES_REGEX
+                formulaid: B
+          description: 'Discovery of network interfaces.'
+          item_prototypes:
+            -
+              uuid: 39727aa5c19848d8b3dfc1c9112c1cf5
+              name: 'Interface {#IFNAME}: Inbound packets discarded'
+              key: 'net.if.in["{#IFNAME}",dropped]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: 7a699b13022d4466ae10fe5c3385fa31
+              name: 'Interface {#IFNAME}: Inbound packets with errors'
+              key: 'net.if.in["{#IFNAME}",errors]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: ae0aef5219d74f12a9aa0030372c3ef4
+              name: 'Interface {#IFNAME}: Bits received'
+              key: 'net.if.in["{#IFNAME}"]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              units: bps
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+                -
+                  type: MULTIPLIER
+                  parameters:
+                    - '8'
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: d8ee7b57b1a54c69a22c4e2d1f6b11db
+              name: 'Interface {#IFNAME}: Outbound packets discarded'
+              key: 'net.if.out["{#IFNAME}",dropped]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: d26e2ff37ae246dbb830cafda9198f43
+              name: 'Interface {#IFNAME}: Outbound packets with errors'
+              key: 'net.if.out["{#IFNAME}",errors]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: 98f172dbf0c741fa81c547fb777584c6
+              name: 'Interface {#IFNAME}: Bits sent'
+              key: 'net.if.out["{#IFNAME}"]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              units: bps
+              preprocessing:
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+                -
+                  type: MULTIPLIER
+                  parameters:
+                    - '8'
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: e05870cdfd1b4ffe9f417479506f135b
+              name: 'Interface {#IFNAME}: Operational status'
+              key: 'vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              description: 'Reference: https://www.kernel.org/doc/Documentation/networking/operstates.txt'
+              valuemap:
+                name: ifOperStatus
+              preprocessing:
+                -
+                  type: JAVASCRIPT
+                  parameters:
+                    - |
+                      var newvalue;
+                      switch(value) {
+                        case "unknown":
+                          newvalue = 0;
+                          break;
+                        case "notpresent":
+                          newvalue = 1;
+                          break;
+                        case "down":
+                          newvalue = 2;
+                          break;
+                        case "lowerlayerdown":
+                          newvalue = 3;
+                          break;
+                        case "testing":
+                          newvalue = 4;
+                          break;
+                        case "dormant":
+                          newvalue = 5;
+                          break;
+                        case "up":
+                          newvalue = 6;
+                          break;  default:
+                          newvalue = "Problem parsing interface operstate in JS";
+                      }
+                      return newvalue;
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+              trigger_prototypes:
+                -
+                  uuid: 64f549ee55f2405988942cfd606e9d54
+                  expression: '{$IFCONTROL:"{#IFNAME}"}=1 and last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"])=2 and (last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"],#1)<>last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"],#2))'
+                  recovery_mode: RECOVERY_EXPRESSION
+                  recovery_expression: 'last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"])<>2 or {$IFCONTROL:"{#IFNAME}"}=0'
+                  name: 'Interface {#IFNAME}: Link down'
+                  opdata: 'Current state: {ITEM.LASTVALUE1}'
+                  priority: AVERAGE
+                  description: |
+                    This trigger expression works as follows:
+                    1. Can be triggered if operations status is down.
+                    2. {$IFCONTROL:"{#IFNAME}"}=1 - user can redefine Context macro to value - 0. That marks this interface as not important. No new trigger will be fired if this interface is down.
+                    3. {TEMPLATE_NAME:METRIC.diff()}=1) - trigger fires only if operational status was up(1) sometime before. (So, do not fire 'ethernal off' interfaces.)
+                    
+                    WARNING: if closed manually - won't fire again on next poll, because of .diff.
+                  tags:
+                    -
+                      tag: scope
+                      value: availability
+            -
+              uuid: 85c2423fe748499b937773197560638f
+              name: 'Interface {#IFNAME}: Speed'
+              key: 'vfs.file.contents["/sys/class/net/{#IFNAME}/speed"]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              units: bps
+              description: |
+                Indicates the interface latest or current speed value. Value is an integer representing the link speed in bits/sec.
+                This attribute is only valid for interfaces that implement the ethtool get_link_ksettings method (mostly Ethernet).
+                Reference: https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net
+              preprocessing:
+                -
+                  type: MULTIPLIER
+                  parameters:
+                    - '1000000'
+                -
+                  type: DISCARD_UNCHANGED_HEARTBEAT
+                  parameters:
+                    - 1h
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+            -
+              uuid: b46f3dd519874393b14194d16bd15449
+              name: 'Interface {#IFNAME}: Interface type'
+              key: 'vfs.file.contents["/sys/class/net/{#IFNAME}/type"]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              description: |
+                Indicates the interface protocol type as a decimal value.
+                See include/uapi/linux/if_arp.h for all possible values.
+                Reference: https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net
+              valuemap:
+                name: 'Linux::Interface protocol types'
+              preprocessing:
+                -
+                  type: DISCARD_UNCHANGED_HEARTBEAT
+                  parameters:
+                    - 1d
+              tags:
+                -
+                  tag: component
+                  value: network
+                -
+                  tag: interface
+                  value: '{#IFNAME}'
+          trigger_prototypes:
+            -
+              uuid: ccc1472cafeb4b939661b53621ebb86b
+              expression: |
+                change(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/speed"])<0 and last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/speed"])>0
+                and
+                (last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/type"])=6 or last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/type"])=1)
+                and
+                (last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"])<>2)
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: |
+                (change(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/speed"])>0 and last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/speed"],#2)>0) or
+                (last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"])=2)
+              name: 'Interface {#IFNAME}: Ethernet has changed to lower speed than it was before'
+              opdata: 'Current reported speed: {ITEM.LASTVALUE1}'
+              priority: INFO
+              description: 'This Ethernet connection has transitioned down from its known maximum speed. This might be a sign of autonegotiation issues. Ack to close.'
+              dependencies:
+                -
+                  name: 'Interface {#IFNAME}: Link down'
+                  expression: '{$IFCONTROL:"{#IFNAME}"}=1 and last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"])=2 and (last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"],#1)<>last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"],#2))'
+                  recovery_expression: 'last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"])<>2 or {$IFCONTROL:"{#IFNAME}"}=0'
+              tags:
+                -
+                  tag: scope
+                  value: performance
+            -
+              uuid: 06420c06e49d451785f56dc21db49e8f
+              expression: |
+                (avg(/SERVIDORES LINUX/net.if.in["{#IFNAME}"],15m)>({$IF.UTIL.MAX:"{#IFNAME}"}/100)*last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/speed"]) or
+                avg(/SERVIDORES LINUX/net.if.out["{#IFNAME}"],15m)>({$IF.UTIL.MAX:"{#IFNAME}"}/100)*last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/speed"])) and
+                last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/speed"])>0
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: |
+                avg(/SERVIDORES LINUX/net.if.in["{#IFNAME}"],15m)<(({$IF.UTIL.MAX:"{#IFNAME}"}-3)/100)*last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/speed"]) and
+                avg(/SERVIDORES LINUX/net.if.out["{#IFNAME}"],15m)<(({$IF.UTIL.MAX:"{#IFNAME}"}-3)/100)*last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/speed"])
+              name: 'Interface {#IFNAME}: High bandwidth usage (>{$IF.UTIL.MAX:"{#IFNAME}"}%)'
+              opdata: 'In: {ITEM.LASTVALUE1}, out: {ITEM.LASTVALUE3}, speed: {ITEM.LASTVALUE2}'
+              priority: WARNING
+              description: 'The network interface utilization is close to its estimated maximum bandwidth.'
+              dependencies:
+                -
+                  name: 'Interface {#IFNAME}: Link down'
+                  expression: '{$IFCONTROL:"{#IFNAME}"}=1 and last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"])=2 and (last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"],#1)<>last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"],#2))'
+                  recovery_expression: 'last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"])<>2 or {$IFCONTROL:"{#IFNAME}"}=0'
+              tags:
+                -
+                  tag: scope
+                  value: performance
+            -
+              uuid: d23165027ec946c69bf8129400286f4b
+              expression: |
+                min(/SERVIDORES LINUX/net.if.in["{#IFNAME}",errors],5m)>{$IF.ERRORS.WARN:"{#IFNAME}"}
+                or min(/SERVIDORES LINUX/net.if.out["{#IFNAME}",errors],5m)>{$IF.ERRORS.WARN:"{#IFNAME}"}
+              recovery_mode: RECOVERY_EXPRESSION
+              recovery_expression: |
+                max(/SERVIDORES LINUX/net.if.in["{#IFNAME}",errors],5m)<{$IF.ERRORS.WARN:"{#IFNAME}"}*0.8
+                and max(/SERVIDORES LINUX/net.if.out["{#IFNAME}",errors],5m)<{$IF.ERRORS.WARN:"{#IFNAME}"}*0.8
+              name: 'Interface {#IFNAME}: High error rate (>{$IF.ERRORS.WARN:"{#IFNAME}"} for 5m)'
+              opdata: 'errors in: {ITEM.LASTVALUE1}, errors out: {ITEM.LASTVALUE2}'
+              priority: WARNING
+              description: 'Recovers when below 80% of {$IF.ERRORS.WARN:"{#IFNAME}"} threshold'
+              dependencies:
+                -
+                  name: 'Interface {#IFNAME}: Link down'
+                  expression: '{$IFCONTROL:"{#IFNAME}"}=1 and last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"])=2 and (last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"],#1)<>last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"],#2))'
+                  recovery_expression: 'last(/SERVIDORES LINUX/vfs.file.contents["/sys/class/net/{#IFNAME}/operstate"])<>2 or {$IFCONTROL:"{#IFNAME}"}=0'
+              tags:
+                -
+                  tag: scope
+                  value: availability
+                -
+                  tag: scope
+                  value: performance
+          graph_prototypes:
+            -
+              uuid: 234b76aaaa2141d781cfdc2e3a82b456
+              name: 'Interface {#IFNAME}: Network traffic'
+              graph_items:
+                -
+                  drawtype: GRADIENT_LINE
+                  color: 1A7C11
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'net.if.in["{#IFNAME}"]'
+                -
+                  sortorder: '1'
+                  drawtype: BOLD_LINE
+                  color: 2774A4
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'net.if.out["{#IFNAME}"]'
+                -
+                  sortorder: '2'
+                  color: F63100
+                  yaxisside: RIGHT
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'net.if.out["{#IFNAME}",errors]'
+                -
+                  sortorder: '3'
+                  color: A54F10
+                  yaxisside: RIGHT
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'net.if.in["{#IFNAME}",errors]'
+                -
+                  sortorder: '4'
+                  color: FC6EA3
+                  yaxisside: RIGHT
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'net.if.out["{#IFNAME}",dropped]'
+                -
+                  sortorder: '5'
+                  color: 6C59DC
+                  yaxisside: RIGHT
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'net.if.in["{#IFNAME}",dropped]'
+        -
+          uuid: 7e8225c6a8ad4d54b923deee16a5cd5c
+          name: 'Block devices discovery'
+          key: vfs.dev.discovery
+          delay: 1h
+          status: DISABLED
+          filter:
+            evaltype: AND
+            conditions:
+              -
+                macro: '{#DEVTYPE}'
+                value: disk
+                formulaid: C
+              -
+                macro: '{#DEVNAME}'
+                value: '{$VFS.DEV.DEVNAME.MATCHES}'
+                formulaid: B
+              -
+                macro: '{#DEVNAME}'
+                value: '{$VFS.DEV.DEVNAME.NOT_MATCHES}'
+                operator: NOT_MATCHES_REGEX
+                formulaid: A
+          item_prototypes:
+            -
+              uuid: 55ef8ef8bf624059bf020302079faa6d
+              name: '{#DEVNAME}: Disk average queue size (avgqu-sz)'
+              type: DEPENDENT
+              key: 'vfs.dev.queue_size[{#DEVNAME}]'
+              delay: '0'
+              history: 7d
+              trends: 180d
+              value_type: FLOAT
+              description: 'Current average disk queue, the number of requests outstanding on the disk at the time the performance data is collected.'
+              preprocessing:
+                -
+                  type: JSONPATH
+                  parameters:
+                    - '$[10]'
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+                -
+                  type: MULTIPLIER
+                  parameters:
+                    - '0.001'
+              master_item:
+                key: 'vfs.file.contents[/sys/block/{#DEVNAME}/stat]'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: disk
+                  value: '{#DEVNAME}'
+            -
+              uuid: 9901d3bd416a4bdab0c1d49d619b4f5b
+              name: '{#DEVNAME}: Disk read request avg waiting time (r_await)'
+              type: CALCULATED
+              key: 'vfs.dev.read.await[{#DEVNAME}]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              value_type: FLOAT
+              units: '!ms'
+              params: '(last(//vfs.dev.read.time.rate[{#DEVNAME}])/(last(//vfs.dev.read.rate[{#DEVNAME}])+(last(//vfs.dev.read.rate[{#DEVNAME}])=0)))*1000*(last(//vfs.dev.read.rate[{#DEVNAME}]) > 0)'
+              description: 'This formula contains two boolean expressions that evaluates to 1 or 0 in order to set calculated metric to zero and to avoid division by zero exception.'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: disk
+                  value: '{#DEVNAME}'
+            -
+              uuid: 44cf8d740bdf48e29941feab4e4f66d4
+              name: '{#DEVNAME}: Disk read rate'
+              type: DEPENDENT
+              key: 'vfs.dev.read.rate[{#DEVNAME}]'
+              delay: '0'
+              history: 7d
+              trends: 180d
+              value_type: FLOAT
+              units: '!r/s'
+              description: 'r/s. The number (after merges) of read requests completed per second for the device.'
+              preprocessing:
+                -
+                  type: JSONPATH
+                  parameters:
+                    - '$[0]'
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+              master_item:
+                key: 'vfs.file.contents[/sys/block/{#DEVNAME}/stat]'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: disk
+                  value: '{#DEVNAME}'
+            -
+              uuid: 64b8db7db95d462789153645afa780c1
+              name: '{#DEVNAME}: Disk read time (rate)'
+              type: DEPENDENT
+              key: 'vfs.dev.read.time.rate[{#DEVNAME}]'
+              delay: '0'
+              history: 7d
+              trends: 180d
+              value_type: FLOAT
+              description: 'Rate of total read time counter. Used in r_await calculation'
+              preprocessing:
+                -
+                  type: JSONPATH
+                  parameters:
+                    - '$[3]'
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+                -
+                  type: MULTIPLIER
+                  parameters:
+                    - '0.001'
+              master_item:
+                key: 'vfs.file.contents[/sys/block/{#DEVNAME}/stat]'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: disk
+                  value: '{#DEVNAME}'
+            -
+              uuid: 0d564b517c984a91b15cae57b5923875
+              name: '{#DEVNAME}: Disk utilization'
+              type: DEPENDENT
+              key: 'vfs.dev.util[{#DEVNAME}]'
+              delay: '0'
+              history: 7d
+              trends: 180d
+              value_type: FLOAT
+              units: '%'
+              description: 'This item is the percentage of elapsed time that the selected disk drive was busy servicing read or writes requests.'
+              preprocessing:
+                -
+                  type: JSONPATH
+                  parameters:
+                    - '$[9]'
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+                -
+                  type: MULTIPLIER
+                  parameters:
+                    - '0.1'
+              master_item:
+                key: 'vfs.file.contents[/sys/block/{#DEVNAME}/stat]'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: disk
+                  value: '{#DEVNAME}'
+            -
+              uuid: a1eb0b8f79a14ad98a254f2a487626ac
+              name: '{#DEVNAME}: Disk write request avg waiting time (w_await)'
+              type: CALCULATED
+              key: 'vfs.dev.write.await[{#DEVNAME}]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              value_type: FLOAT
+              units: '!ms'
+              params: '(last(//vfs.dev.write.time.rate[{#DEVNAME}])/(last(//vfs.dev.write.rate[{#DEVNAME}])+(last(//vfs.dev.write.rate[{#DEVNAME}])=0)))*1000*(last(//vfs.dev.write.rate[{#DEVNAME}]) > 0)'
+              description: 'This formula contains two boolean expressions that evaluates to 1 or 0 in order to set calculated metric to zero and to avoid division by zero exception.'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: disk
+                  value: '{#DEVNAME}'
+            -
+              uuid: 876d22fe48f04d2fba2b9ce18ebca059
+              name: '{#DEVNAME}: Disk write rate'
+              type: DEPENDENT
+              key: 'vfs.dev.write.rate[{#DEVNAME}]'
+              delay: '0'
+              history: 7d
+              trends: 180d
+              value_type: FLOAT
+              units: '!w/s'
+              description: 'w/s. The number (after merges) of write requests completed per second for the device.'
+              preprocessing:
+                -
+                  type: JSONPATH
+                  parameters:
+                    - '$[4]'
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+              master_item:
+                key: 'vfs.file.contents[/sys/block/{#DEVNAME}/stat]'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: disk
+                  value: '{#DEVNAME}'
+            -
+              uuid: df86540fd4614832acc275a9b0bc76c6
+              name: '{#DEVNAME}: Disk write time (rate)'
+              type: DEPENDENT
+              key: 'vfs.dev.write.time.rate[{#DEVNAME}]'
+              delay: '0'
+              history: 7d
+              trends: 180d
+              value_type: FLOAT
+              description: 'Rate of total write time counter. Used in w_await calculation'
+              preprocessing:
+                -
+                  type: JSONPATH
+                  parameters:
+                    - '$[7]'
+                -
+                  type: CHANGE_PER_SECOND
+                  parameters:
+                    - ''
+                -
+                  type: MULTIPLIER
+                  parameters:
+                    - '0.001'
+              master_item:
+                key: 'vfs.file.contents[/sys/block/{#DEVNAME}/stat]'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: disk
+                  value: '{#DEVNAME}'
+            -
+              uuid: 2f544671252b48f099233089e1e9128f
+              name: '{#DEVNAME}: Get stats'
+              key: 'vfs.file.contents[/sys/block/{#DEVNAME}/stat]'
+              delay: 5m
+              history: 7d
+              trends: '0'
+              value_type: TEXT
+              description: 'Get contents of /sys/block/{#DEVNAME}/stat for disk stats.'
+              preprocessing:
+                -
+                  type: JAVASCRIPT
+                  parameters:
+                    - 'return JSON.stringify(value.trim().split(/ +/));'
+              tags:
+                -
+                  tag: component
+                  value: raw
+          trigger_prototypes:
+            -
+              uuid: 39e8aaed98ff42ed8eb859b1a4bd1413
+              expression: 'min(/SERVIDORES LINUX/vfs.dev.read.await[{#DEVNAME}],15m) > {$VFS.DEV.READ.AWAIT.WARN:"{#DEVNAME}"} or min(/SERVIDORES LINUX/vfs.dev.write.await[{#DEVNAME}],15m) > {$VFS.DEV.WRITE.AWAIT.WARN:"{#DEVNAME}"}'
+              name: '{#DEVNAME}: Disk read/write request responses are too high (read > {$VFS.DEV.READ.AWAIT.WARN:"{#DEVNAME}"} ms for 15m or write > {$VFS.DEV.WRITE.AWAIT.WARN:"{#DEVNAME}"} ms for 15m)'
+              priority: WARNING
+              description: 'This trigger might indicate disk {#DEVNAME} saturation.'
+              tags:
+                -
+                  tag: scope
+                  value: performance
+          graph_prototypes:
+            -
+              uuid: 42441b1b2650438895e8ec120ae58f36
+              name: '{#DEVNAME}: Disk average waiting time'
+              graph_items:
+                -
+                  color: 1A7C11
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'vfs.dev.read.await[{#DEVNAME}]'
+                -
+                  sortorder: '1'
+                  drawtype: GRADIENT_LINE
+                  color: 2774A4
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'vfs.dev.write.await[{#DEVNAME}]'
+            -
+              uuid: 3a2ff5482650449e8ab35184ead5224a
+              name: '{#DEVNAME}: Disk read/write rates'
+              graph_items:
+                -
+                  color: 1A7C11
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'vfs.dev.read.rate[{#DEVNAME}]'
+                -
+                  sortorder: '1'
+                  drawtype: GRADIENT_LINE
+                  color: 2774A4
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'vfs.dev.write.rate[{#DEVNAME}]'
+            -
+              uuid: cf775ddfe22447198765354f7d692972
+              name: '{#DEVNAME}: Disk utilization and queue'
+              graph_items:
+                -
+                  color: 1A7C11
+                  yaxisside: RIGHT
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'vfs.dev.queue_size[{#DEVNAME}]'
+                -
+                  sortorder: '1'
+                  drawtype: GRADIENT_LINE
+                  color: 2774A4
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'vfs.dev.util[{#DEVNAME}]'
+          preprocessing:
+            -
+              type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - 1h
+        -
+          uuid: 3b9d0593814245a387bc99d87d5c012e
+          name: 'Mounted filesystem discovery'
+          key: vfs.fs.discovery
+          delay: 1h
+          filter:
+            evaltype: AND
+            conditions:
+              -
+                macro: '{#FSTYPE}'
+                value: '{$VFS.FS.FSTYPE.MATCHES}'
+                formulaid: C
+              -
+                macro: '{#FSTYPE}'
+                value: '{$VFS.FS.FSTYPE.NOT_MATCHES}'
+                operator: NOT_MATCHES_REGEX
+                formulaid: D
+              -
+                macro: '{#FSNAME}'
+                value: '{$VFS.FS.FSNAME.MATCHES}'
+                formulaid: A
+              -
+                macro: '{#FSNAME}'
+                value: '{$VFS.FS.FSNAME.NOT_MATCHES}'
+                operator: NOT_MATCHES_REGEX
+                formulaid: B
+          description: 'Discovery of file systems of different types.'
+          item_prototypes:
+            -
+              uuid: 28eb7d2b69ac430c98141c35f48b810d
+              name: '{#FSNAME}: Free inodes in %'
+              key: 'vfs.fs.inode[{#FSNAME},pfree]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              status: DISABLED
+              discover: NO_DISCOVER
+              value_type: FLOAT
+              units: '%'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: filesystem
+                  value: '{#FSNAME}'
+              trigger_prototypes:
+                -
+                  uuid: 810277daffd04c0fac8c8dbe2a4245ad
+                  expression: 'min(/SERVIDORES LINUX/vfs.fs.inode[{#FSNAME},pfree],5m)<{$VFS.FS.INODE.PFREE.MIN.CRIT:"{#FSNAME}"}'
+                  name: '{#FSNAME}: Running out of free inodes (free < {$VFS.FS.INODE.PFREE.MIN.CRIT:"{#FSNAME}"}%)'
+                  opdata: 'Free inodes: {ITEM.LASTVALUE1}'
+                  priority: AVERAGE
+                  description: |
+                    It may become impossible to write to disk if there are no index nodes left.
+                    As symptoms, 'No space left on device' or 'Disk is full' errors may be seen even though free space is available.
+                  manual_close: 'YES'
+                  tags:
+                    -
+                      tag: scope
+                      value: capacity
+                    -
+                      tag: scope
+                      value: performance
+                -
+                  uuid: 3678e03dcfe5471c985f8017b7218c0a
+                  expression: 'min(/SERVIDORES LINUX/vfs.fs.inode[{#FSNAME},pfree],5m)<{$VFS.FS.INODE.PFREE.MIN.WARN:"{#FSNAME}"}'
+                  name: '{#FSNAME}: Running out of free inodes (free < {$VFS.FS.INODE.PFREE.MIN.WARN:"{#FSNAME}"}%)'
+                  opdata: 'Free inodes: {ITEM.LASTVALUE1}'
+                  priority: WARNING
+                  description: |
+                    It may become impossible to write to disk if there are no index nodes left.
+                    As symptoms, 'No space left on device' or 'Disk is full' errors may be seen even though free space is available.
+                  manual_close: 'YES'
+                  dependencies:
+                    -
+                      name: '{#FSNAME}: Running out of free inodes (free < {$VFS.FS.INODE.PFREE.MIN.CRIT:"{#FSNAME}"}%)'
+                      expression: 'min(/SERVIDORES LINUX/vfs.fs.inode[{#FSNAME},pfree],5m)<{$VFS.FS.INODE.PFREE.MIN.CRIT:"{#FSNAME}"}'
+                  tags:
+                    -
+                      tag: scope
+                      value: capacity
+                    -
+                      tag: scope
+                      value: performance
+            -
+              uuid: bba4d05c04084065b19742bfed33bf57
+              name: '{#FSNAME}: Space utilization'
+              key: 'vfs.fs.size[{#FSNAME},pused]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              value_type: FLOAT
+              units: '%'
+              description: 'Space utilization in % for {#FSNAME}'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: filesystem
+                  value: '{#FSNAME}'
+            -
+              uuid: 52b1aba57cd04ce686c1c6e5f8d54ff3
+              name: '{#FSNAME}: Total space'
+              key: 'vfs.fs.size[{#FSNAME},total]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              units: B
+              description: 'Total space in Bytes'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: filesystem
+                  value: '{#FSNAME}'
+            -
+              uuid: ae66252e49a84559ba78b9134ea3f98b
+              name: '{#FSNAME}: Used space'
+              key: 'vfs.fs.size[{#FSNAME},used]'
+              delay: 5m
+              history: 7d
+              trends: 180d
+              units: B
+              description: 'Used storage in Bytes'
+              tags:
+                -
+                  tag: component
+                  value: storage
+                -
+                  tag: filesystem
+                  value: '{#FSNAME}'
+          trigger_prototypes:
+            -
+              uuid: 51b703f10219496d8062d08add87f02c
+              expression: |
+                last(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},pused])>{$VFS.FS.PUSED.MAX.CRIT:"{#FSNAME}"} and
+                ((last(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},total])-last(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},used]))<5G or timeleft(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},pused],1h,100)<1d)
+              name: '{#FSNAME}: Disk space is critically low (used > {$VFS.FS.PUSED.MAX.CRIT:"{#FSNAME}"}%)'
+              opdata: 'Space used: {ITEM.LASTVALUE3} of {ITEM.LASTVALUE2} ({ITEM.LASTVALUE1})'
+              priority: AVERAGE
+              description: |
+                Two conditions should match: First, space utilization should be above {$VFS.FS.PUSED.MAX.CRIT:"{#FSNAME}"}.
+                 Second condition should be one of the following:
+                 - The disk free space is less than 5G.
+                 - The disk will be full in less than 24 hours.
+              manual_close: 'YES'
+              tags:
+                -
+                  tag: scope
+                  value: availability
+                -
+                  tag: scope
+                  value: capacity
+            -
+              uuid: 55a8d2c727cc4055ba3c908a23215bb0
+              expression: |
+                last(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},pused])>{$VFS.FS.PUSED.MAX.WARN:"{#FSNAME}"} and
+                ((last(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},total])-last(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},used]))<10G or timeleft(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},pused],1h,100)<1d)
+              name: '{#FSNAME}: Disk space is low (used > {$VFS.FS.PUSED.MAX.WARN:"{#FSNAME}"}%)'
+              opdata: 'Space used: {ITEM.LASTVALUE3} of {ITEM.LASTVALUE2} ({ITEM.LASTVALUE1})'
+              priority: WARNING
+              description: |
+                Two conditions should match: First, space utilization should be above {$VFS.FS.PUSED.MAX.WARN:"{#FSNAME}"}.
+                 Second condition should be one of the following:
+                 - The disk free space is less than 10G.
+                 - The disk will be full in less than 24 hours.
+              manual_close: 'YES'
+              dependencies:
+                -
+                  name: '{#FSNAME}: Disk space is critically low (used > {$VFS.FS.PUSED.MAX.CRIT:"{#FSNAME}"}%)'
+                  expression: |
+                    last(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},pused])>{$VFS.FS.PUSED.MAX.CRIT:"{#FSNAME}"} and
+                    ((last(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},total])-last(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},used]))<5G or timeleft(/SERVIDORES LINUX/vfs.fs.size[{#FSNAME},pused],1h,100)<1d)
+              tags:
+                -
+                  tag: scope
+                  value: availability
+                -
+                  tag: scope
+                  value: capacity
+          graph_prototypes:
+            -
+              uuid: 9c8b75c9f3da4ab69822eba89b22f74f
+              name: '{#FSNAME}: Disk space usage'
+              width: '600'
+              height: '340'
+              type: PIE
+              show_3d: 'YES'
+              graph_items:
+                -
+                  color: '969696'
+                  calc_fnc: LAST
+                  type: GRAPH_SUM
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'vfs.fs.size[{#FSNAME},total]'
+                -
+                  sortorder: '1'
+                  color: C80000
+                  calc_fnc: LAST
+                  item:
+                    host: 'SERVIDORES LINUX'
+                    key: 'vfs.fs.size[{#FSNAME},used]'
+      tags:
+        -
+          tag: class
+          value: os
+        -
+          tag: target
+          value: linux
+      macros:
+        -
+          macro: '{$AGENT.TIMEOUT}'
+          value: 10m
+          description: 'Timeout after which agent is considered unavailable. Works only for agents reachable from Zabbix server/proxy (passive mode).'
+        -
+          macro: '{$CPU.UTIL.CRIT}'
+          value: '90'
+        -
+          macro: '{$IF.ERRORS.WARN}'
+          value: '2'
+        -
+          macro: '{$IF.UTIL.MAX}'
+          value: '90'
+          description: 'This macro is used as a threshold in interface utilization trigger.'
+        -
+          macro: '{$IFCONTROL}'
+          value: '1'
+        -
+          macro: '{$KERNEL.MAXFILES.MIN}'
+          value: '256'
+        -
+          macro: '{$KERNEL.MAXPROC.MIN}'
+          value: '1024'
+        -
+          macro: '{$LOAD_AVG_PER_CPU.MAX.WARN}'
+          value: '1.5'
+          description: 'Load per CPU considered sustainable. Tune if needed.'
+        -
+          macro: '{$MEMORY.AVAILABLE.MIN}'
+          value: 20M
+          description: 'This macro is used as a threshold in memory available trigger.'
+        -
+          macro: '{$MEMORY.UTIL.MAX}'
+          value: '90'
+          description: 'This macro is used as a threshold in memory utilization trigger.'
+        -
+          macro: '{$NET.IF.IFNAME.MATCHES}'
+          value: '^.*$'
+        -
+          macro: '{$NET.IF.IFNAME.NOT_MATCHES}'
+          value: '(^Software Loopback Interface|^NULL[0-9.]*$|^[Ll]o[0-9.]*$|^[Ss]ystem$|^Nu[0-9.]*$|^veth[0-9A-z]+$|docker[0-9]+|br-[a-z0-9]{12})'
+          description: 'Filter out loopbacks, nulls, docker veth links and docker0 bridge by default'
+        -
+          macro: '{$SWAP.PFREE.MIN.WARN}'
+          value: '50'
+        -
+          macro: '{$SYSTEM.FUZZYTIME.MAX}'
+          value: '60'
+        -
+          macro: '{$VFS.DEV.DEVNAME.MATCHES}'
+          value: .+
+          description: 'This macro is used in block devices discovery. Can be overridden on the host or linked template level'
+        -
+          macro: '{$VFS.DEV.DEVNAME.NOT_MATCHES}'
+          value: '^(loop[0-9]*|sd[a-z][0-9]+|nbd[0-9]+|sr[0-9]+|fd[0-9]+|dm-[0-9]+|ram[0-9]+|ploop[a-z0-9]+|md[0-9]*|hcp[0-9]*|zram[0-9]*)'
+          description: 'This macro is used in block devices discovery. Can be overridden on the host or linked template level'
+        -
+          macro: '{$VFS.DEV.READ.AWAIT.WARN}'
+          value: '20'
+          description: 'Disk read average response time (in ms) before the trigger would fire'
+        -
+          macro: '{$VFS.DEV.WRITE.AWAIT.WARN}'
+          value: '20'
+          description: 'Disk write average response time (in ms) before the trigger would fire'
+        -
+          macro: '{$VFS.FS.FSNAME.MATCHES}'
+          value: .+
+          description: 'This macro is used in filesystems discovery. Can be overridden on the host or linked template level'
+        -
+          macro: '{$VFS.FS.FSNAME.NOT_MATCHES}'
+          value: ^(/dev|/sys|/run|/proc|.+/shm$)
+          description: 'This macro is used in filesystems discovery. Can be overridden on the host or linked template level'
+        -
+          macro: '{$VFS.FS.FSTYPE.MATCHES}'
+          value: ^(btrfs|ext2|ext3|ext4|reiser|xfs|ffs|ufs|jfs|jfs2|vxfs|hfs|apfs|refs|ntfs|fat32|zfs)$
+          description: 'This macro is used in filesystems discovery. Can be overridden on the host or linked template level'
+        -
+          macro: '{$VFS.FS.FSTYPE.NOT_MATCHES}'
+          value: ^\s$
+          description: 'This macro is used in filesystems discovery. Can be overridden on the host or linked template level'
+        -
+          macro: '{$VFS.FS.INODE.PFREE.MIN.CRIT}'
+          value: '10'
+        -
+          macro: '{$VFS.FS.INODE.PFREE.MIN.WARN}'
+          value: '20'
+        -
+          macro: '{$VFS.FS.PUSED.MAX.CRIT}'
+          value: '90'
+        -
+          macro: '{$VFS.FS.PUSED.MAX.WARN}'
+          value: '80'
+      dashboards:
+        -
+          uuid: 0e9fe2777c0c4cc8a4a5de311f74ead9
+          name: 'Network interfaces'
+          pages:
+            -
+              widgets:
+                -
+                  type: GRAPH_PROTOTYPE
+                  width: '24'
+                  height: '5'
+                  fields:
+                    -
+                      type: INTEGER
+                      name: source_type
+                      value: '2'
+                    -
+                      type: INTEGER
+                      name: columns
+                      value: '1'
+                    -
+                      type: INTEGER
+                      name: rows
+                      value: '1'
+                    -
+                      type: GRAPH_PROTOTYPE
+                      name: graphid
+                      value:
+                        name: 'Interface {#IFNAME}: Network traffic'
+                        host: 'SERVIDORES LINUX'
+        -
+          uuid: ce871c0f03504ffeb937dbcec3ecf877
+          name: 'System performance'
+          pages:
+            -
+              widgets:
+                -
+                  type: GRAPH_CLASSIC
+                  width: '12'
+                  height: '5'
+                  fields:
+                    -
+                      type: INTEGER
+                      name: source_type
+                      value: '0'
+                    -
+                      type: GRAPH
+                      name: graphid
+                      value:
+                        name: 'System load'
+                        host: 'SERVIDORES LINUX'
+                -
+                  type: GRAPH_CLASSIC
+                  x: '12'
+                  width: '12'
+                  height: '5'
+                  fields:
+                    -
+                      type: INTEGER
+                      name: source_type
+                      value: '0'
+                -
+                  type: GRAPH_CLASSIC
+                  'y': '5'
+                  width: '12'
+                  height: '5'
+                  fields:
+                    -
+                      type: INTEGER
+                      name: source_type
+                      value: '0'
+                    -
+                      type: GRAPH
+                      name: graphid
+                      value:
+                        name: 'Memory usage'
+                        host: 'SERVIDORES LINUX'
+                -
+                  type: GRAPH_CLASSIC
+                  x: '12'
+                  'y': '5'
+                  width: '12'
+                  height: '5'
+                  fields:
+                    -
+                      type: INTEGER
+                      name: source_type
+                      value: '0'
+                -
+                  type: GRAPH_PROTOTYPE
+                  'y': '10'
+                  width: '24'
+                  height: '5'
+                  fields:
+                    -
+                      type: INTEGER
+                      name: source_type
+                      value: '2'
+                    -
+                      type: INTEGER
+                      name: columns
+                      value: '1'
+                    -
+                      type: INTEGER
+                      name: rows
+                      value: '1'
+                    -
+                      type: GRAPH_PROTOTYPE
+                      name: graphid
+                      value:
+                        name: '{#FSNAME}: Disk space usage'
+                        host: 'SERVIDORES LINUX'
+                -
+                  type: GRAPH_PROTOTYPE
+                  'y': '15'
+                  width: '24'
+                  height: '5'
+                  fields:
+                    -
+                      type: INTEGER
+                      name: source_type
+                      value: '2'
+                    -
+                      type: INTEGER
+                      name: columns
+                      value: '1'
+                    -
+                      type: INTEGER
+                      name: rows
+                      value: '1'
+                    -
+                      type: GRAPH_PROTOTYPE
+                      name: graphid
+                      value:
+                        name: '{#DEVNAME}: Disk read/write rates'
+                        host: 'SERVIDORES LINUX'
+                -
+                  type: GRAPH_PROTOTYPE
+                  'y': '20'
+                  width: '24'
+                  height: '5'
+                  fields:
+                    -
+                      type: INTEGER
+                      name: source_type
+                      value: '2'
+                    -
+                      type: INTEGER
+                      name: columns
+                      value: '1'
+                    -
+                      type: INTEGER
+                      name: rows
+                      value: '1'
+                    -
+                      type: GRAPH_PROTOTYPE
+                      name: graphid
+                      value:
+                        name: '{#DEVNAME}: Disk average waiting time'
+                        host: 'SERVIDORES LINUX'
+                -
+                  type: GRAPH_PROTOTYPE
+                  'y': '25'
+                  width: '24'
+                  height: '5'
+                  fields:
+                    -
+                      type: INTEGER
+                      name: source_type
+                      value: '2'
+                    -
+                      type: INTEGER
+                      name: columns
+                      value: '1'
+                    -
+                      type: INTEGER
+                      name: rows
+                      value: '1'
+                    -
+                      type: GRAPH_PROTOTYPE
+                      name: graphid
+                      value:
+                        name: '{#DEVNAME}: Disk utilization and queue'
+                        host: 'SERVIDORES LINUX'
+                -
+                  type: GRAPH_PROTOTYPE
+                  'y': '30'
+                  width: '24'
+                  height: '5'
+                  fields:
+                    -
+                      type: INTEGER
+                      name: source_type
+                      value: '2'
+                    -
+                      type: INTEGER
+                      name: columns
+                      value: '1'
+                    -
+                      type: INTEGER
+                      name: rows
+                      value: '1'
+                    -
+                      type: GRAPH_PROTOTYPE
+                      name: graphid
+                      value:
+                        name: 'Interface {#IFNAME}: Network traffic'
+                        host: 'SERVIDORES LINUX'
+      valuemaps:
+        -
+          uuid: cfdd6a512deb406e83b82db827bfb08a
+          name: ifOperStatus
+          mappings:
+            -
+              value: '0'
+              newvalue: unknown
+            -
+              value: '1'
+              newvalue: notpresent
+            -
+              value: '2'
+              newvalue: down
+            -
+              value: '3'
+              newvalue: lowerlayerdown
+            -
+              value: '4'
+              newvalue: testing
+            -
+              value: '5'
+              newvalue: dormant
+            -
+              value: '6'
+              newvalue: up
+        -
+          uuid: 096abf2a8fe04d2ca4986afdf10338ca
+          name: 'Linux::Interface protocol types'
+          mappings:
+            -
+              value: '0'
+              newvalue: 'from KA9Q: NET/ROM pseudo'
+            -
+              value: '1'
+              newvalue: Ethernet
+            -
+              value: '2'
+              newvalue: 'Experimental Ethernet'
+            -
+              value: '3'
+              newvalue: 'AX.25 Level 2'
+            -
+              value: '4'
+              newvalue: 'PROnet token ring'
+            -
+              value: '5'
+              newvalue: Chaosnet
+            -
+              value: '6'
+              newvalue: 'IEEE 802.2 Ethernet/TR/TB'
+            -
+              value: '7'
+              newvalue: ARCnet
+            -
+              value: '8'
+              newvalue: APPLEtalk
+            -
+              value: '15'
+              newvalue: 'Frame Relay DLCI'
+            -
+              value: '19'
+              newvalue: ATM
+            -
+              value: '23'
+              newvalue: 'Metricom STRIP (new IANA id)'
+            -
+              value: '24'
+              newvalue: 'IEEE 1394 IPv4 - RFC 2734'
+            -
+              value: '27'
+              newvalue: EUI-64
+            -
+              value: '32'
+              newvalue: InfiniBand
+            -
+              value: '256'
+              newvalue: ARPHRD_SLIP
+            -
+              value: '257'
+              newvalue: ARPHRD_CSLIP
+            -
+              value: '258'
+              newvalue: ARPHRD_SLIP6
+            -
+              value: '259'
+              newvalue: ARPHRD_CSLIP6
+            -
+              value: '260'
+              newvalue: 'Notional KISS type'
+            -
+              value: '264'
+              newvalue: ARPHRD_ADAPT
+            -
+              value: '270'
+              newvalue: ARPHRD_ROSE
+            -
+              value: '271'
+              newvalue: 'CCITT X.25'
+            -
+              value: '272'
+              newvalue: 'Boards with X.25 in firmware'
+            -
+              value: '280'
+              newvalue: 'Controller Area Network'
+            -
+              value: '512'
+              newvalue: ARPHRD_PPP
+            -
+              value: '513'
+              newvalue: 'Cisco HDLC'
+            -
+              value: '516'
+              newvalue: LAPB
+            -
+              value: '517'
+              newvalue: 'Digital''s DDCMP protocol'
+            -
+              value: '518'
+              newvalue: 'Raw HDLC'
+            -
+              value: '519'
+              newvalue: 'Raw IP'
+            -
+              value: '768'
+              newvalue: 'IPIP tunnel'
+            -
+              value: '769'
+              newvalue: 'IP6IP6 tunnel'
+            -
+              value: '770'
+              newvalue: 'Frame Relay Access Device'
+            -
+              value: '771'
+              newvalue: 'SKIP vif'
+            -
+              value: '772'
+              newvalue: 'Loopback device'
+            -
+              value: '773'
+              newvalue: 'Localtalk device'
+            -
+              value: '774'
+              newvalue: 'Fiber Distributed Data Interface'
+            -
+              value: '775'
+              newvalue: 'AP1000 BIF'
+            -
+              value: '776'
+              newvalue: 'sit0 device - IPv6-in-IPv4'
+            -
+              value: '777'
+              newvalue: 'IP over DDP tunneller'
+            -
+              value: '778'
+              newvalue: 'GRE over IP'
+            -
+              value: '779'
+              newvalue: 'PIMSM register interface'
+            -
+              value: '780'
+              newvalue: 'High Performance Parallel Interface'
+            -
+              value: '781'
+              newvalue: 'Nexus 64Mbps Ash'
+            -
+              value: '782'
+              newvalue: 'Acorn Econet'
+            -
+              value: '783'
+              newvalue: Linux-IrDA
+            -
+              value: '784'
+              newvalue: 'Point to point fibrechannel'
+            -
+              value: '785'
+              newvalue: 'Fibrechannel arbitrated loop'
+            -
+              value: '786'
+              newvalue: 'Fibrechannel public loop'
+            -
+              value: '787'
+              newvalue: 'Fibrechannel fabric'
+            -
+              value: '800'
+              newvalue: 'Magic type ident for TR'
+            -
+              value: '801'
+              newvalue: 'IEEE 802.11'
+            -
+              value: '802'
+              newvalue: 'IEEE 802.11 + Prism2 header'
+            -
+              value: '803'
+              newvalue: 'IEEE 802.11 + radiotap header'
+            -
+              value: '804'
+              newvalue: ARPHRD_IEEE802154
+            -
+              value: '805'
+              newvalue: 'IEEE 802.15.4 network monitor'
+            -
+              value: '820'
+              newvalue: 'PhoNet media type'
+            -
+              value: '821'
+              newvalue: 'PhoNet pipe header'
+            -
+              value: '822'
+              newvalue: 'CAIF media type'
+            -
+              value: '823'
+              newvalue: 'GRE over IPv6'
+            -
+              value: '824'
+              newvalue: 'Netlink header'
+            -
+              value: '825'
+              newvalue: 'IPv6 over LoWPAN'
+            -
+              value: '826'
+              newvalue: 'Vsock monitor header'
+        -
+          uuid: e84fbdb98fce46d3a336b126eda60819
+          name: zabbix.host.available
+          mappings:
+            -
+              value: '0'
+              newvalue: 'not available'
+            -
+              value: '1'
+              newvalue: available
+            -
+              value: '2'
+              newvalue: unknown
+        -
+          uuid: a91d9632f93046918e0c49da360539bb
+          name: 'Zabbix agent ping status'
+          mappings:
+            -
+              value: '1'
+              newvalue: Up
+  triggers:
+    -
+      uuid: 7e1557a80f3d49c38457c9f16cb37b35
+      expression: |
+        min(/SERVIDORES LINUX/system.cpu.load[all,avg1],10m)/last(/SERVIDORES LINUX/system.cpu.num)>{$LOAD_AVG_PER_CPU.MAX.WARN}
+        and last(/SERVIDORES LINUX/system.cpu.load[all,avg5])>0
+        and last(/SERVIDORES LINUX/system.cpu.load[all,avg15])>0
+      name: 'A media de uso da CPU esta muita alta (acima de {$LOAD_AVG_PER_CPU.MAX.WARN} por 5m)'
+      opdata: 'Load averages(1m 5m 15m): ({ITEM.LASTVALUE1} {ITEM.LASTVALUE3} {ITEM.LASTVALUE4}), # of CPUs: {ITEM.LASTVALUE2}'
+      priority: AVERAGE
+      description: 'Per CPU load average is too high. Your system may be slow to respond.'
+      tags:
+        -
+          tag: scope
+          value: capacity
+        -
+          tag: scope
+          value: performance
+    -
+      uuid: bb75afef9b864b56a2e2d82ad81d278f
+      expression: 'max(/SERVIDORES LINUX/vm.memory.size[available],10m)<{$MEMORY.AVAILABLE.MIN} and last(/SERVIDORES LINUX/vm.memory.size[total])>0'
+      name: 'Falta de memoria disponivel (<{$MEMORY.AVAILABLE.MIN} of {ITEM.VALUE2})'
+      opdata: 'Available: {ITEM.LASTVALUE1}, total: {ITEM.LASTVALUE2}'
+      priority: AVERAGE
+      tags:
+        -
+          tag: scope
+          value: capacity
+        -
+          tag: scope
+          value: performance
+  graphs:
+    -
+      uuid: 6dacbadafbb94587a8067b9abfaa3065
+      name: 'CPU utilization'
+      ymin_type_1: FIXED
+      ymax_type_1: FIXED
+      graph_items:
+        -
+          drawtype: GRADIENT_LINE
+          color: 1A7C11
+          item:
+            host: 'SERVIDORES LINUX'
+            key: system.cpu.util
+    -
+      uuid: 80afae9a061c42cfad41e4c9075e7575
+      name: 'Memory usage'
+      ymin_type_1: FIXED
+      graph_items:
+        -
+          drawtype: BOLD_LINE
+          color: 1A7C11
+          item:
+            host: 'SERVIDORES LINUX'
+            key: 'vm.memory.size[total]'
+        -
+          sortorder: '1'
+          drawtype: GRADIENT_LINE
+          color: 2774A4
+          item:
+            host: 'SERVIDORES LINUX'
+            key: 'vm.memory.size[available]'
+    -
+      uuid: a6cb9f3c0fa14dd8b9bee094a9b12582
+      name: 'Memory utilization'
+      ymin_type_1: FIXED
+      ymax_type_1: FIXED
+      graph_items:
+        -
+          drawtype: GRADIENT_LINE
+          color: 1A7C11
+          item:
+            host: 'SERVIDORES LINUX'
+            key: vm.memory.utilization
+    -
+      uuid: 80191f1384bb4b13b4cdf96d07d5d0a8
+      name: Processes
+      graph_items:
+        -
+          color: 1A7C11
+          item:
+            host: 'SERVIDORES LINUX'
+            key: proc.num
+    -
+      uuid: a1174742c0734c1894a6f0917af5acc1
+      name: 'System load'
+      ymin_type_1: FIXED
+      graph_items:
+        -
+          color: 1A7C11
+          item:
+            host: 'SERVIDORES LINUX'
+            key: 'system.cpu.load[all,avg1]'
+        -
+          sortorder: '1'
+          color: 2774A4
+          item:
+            host: 'SERVIDORES LINUX'
+            key: 'system.cpu.load[all,avg5]'
+        -
+          sortorder: '2'
+          color: F63100
+          item:
+            host: 'SERVIDORES LINUX'
+            key: 'system.cpu.load[all,avg15]'
+        -
+          sortorder: '3'
+          color: A54F10
+          yaxisside: RIGHT
+          item:
+            host: 'SERVIDORES LINUX'
+            key: system.cpu.num
